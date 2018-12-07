@@ -222,7 +222,7 @@ public class cadastroView extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c=evt.getKeyChar();
 
-    if(!(Character.isAlphabetic(c) ||  (c==KeyEvent.VK_BACK_SPACE)||  c==KeyEvent.VK_DELETE || c==KeyEvent.VK_SPACE ) || txt_nome.getText().length() >= 30)
+    if(!((c==KeyEvent.VK_BACK_SPACE)||  c==KeyEvent.VK_DELETE || c==KeyEvent.VK_SPACE ) || txt_nome.getText().length() >= 30)
         evt.consume();
     }//GEN-LAST:event_txt_nomeKeyTyped
 

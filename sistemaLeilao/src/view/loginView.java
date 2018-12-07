@@ -2,6 +2,7 @@ package view;
 
 import Controllers.sistemaLeilao;
 import Models.leilaoModel;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -45,6 +46,12 @@ public class loginView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AREA DE LOGIN");
 
+        txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyTyped(evt);
+            }
+        });
+
         jLabel2.setText("Usuário:");
 
         jLabel3.setText("Senha:");
@@ -62,6 +69,12 @@ public class loginView extends javax.swing.JFrame {
         btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastrarActionPerformed(evt);
+            }
+        });
+
+        txt_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_senhaKeyTyped(evt);
             }
         });
 
@@ -119,6 +132,22 @@ public class loginView extends javax.swing.JFrame {
         this.dispose();
         new cadastroView().setVisible(true);
     }//GEN-LAST:event_btn_cadastrarActionPerformed
+
+    private void txt_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+
+    if(!((c==KeyEvent.VK_BACK_SPACE)||  c==KeyEvent.VK_DELETE || c==KeyEvent.VK_SPACE ) || txt_usuario.getText().length() >= 30)
+        evt.consume();
+    }//GEN-LAST:event_txt_usuarioKeyTyped
+
+    private void txt_senhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaKeyTyped
+        // TODO add your handling code here:
+        char vchar = evt.getKeyChar();
+        if ((vchar == KeyEvent.VK_BACK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_senha.getText().length() >= 10) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_senhaKeyTyped
 
     /**
      * @param args the command line arguments
