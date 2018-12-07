@@ -15,7 +15,7 @@ public class sistemaLeilao{
       leilaoModel l = null;
       try {
             LocateRegistry.getRegistry("localhost");
-            l = (leilaoModel) Naming.lookup("rmi://localhost:9000/LeilaoService" );
+            l = (leilaoModel) Naming.lookup("rmi://localhost:9999/LeilaoService" );
             System.out.println("CONEXAO TRUE");
 	} catch (MalformedURLException | RemoteException | NotBoundException e) {
             e.printStackTrace();
@@ -24,6 +24,8 @@ public class sistemaLeilao{
   }
 
   public boolean login(String user, String senha, leilaoModel server){
+      
+      System.out.println(server.toString());
       boolean loginResult = false;
       try{          
           loginResult = server.login(user, senha);
