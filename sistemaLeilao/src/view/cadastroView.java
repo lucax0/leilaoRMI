@@ -38,7 +38,6 @@ public class cadastroView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_nome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_senha = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
@@ -47,29 +46,31 @@ public class cadastroView extends javax.swing.JFrame {
         btn_salvar = new javax.swing.JButton();
         btn_limpar = new javax.swing.JButton();
         txt_cpf = new javax.swing.JFormattedTextField();
+        txt_senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setText("Nome Completo:");
 
-        jLabel3.setText("Senha:");
-
-        txt_senha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senhaActionPerformed(evt);
-            }
-        });
-        txt_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_nome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_senhaKeyTyped(evt);
+                txt_nomeKeyTyped(evt);
             }
         });
+
+        jLabel3.setText("Senha:");
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AREA DE CADASTRO");
 
         jLabel4.setText("Email:");
+
+        txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_emailKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("CPF:");
 
@@ -103,6 +104,17 @@ public class cadastroView extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        txt_senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_senhaActionPerformed(evt);
+            }
+        });
+        txt_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_senhaKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,11 +136,11 @@ public class cadastroView extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_senha)
                     .addComponent(txt_nome)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(txt_cpf))
+                    .addComponent(txt_cpf)
+                    .addComponent(txt_senha))
                 .addGap(91, 91, 91))
         );
 
@@ -196,16 +208,31 @@ public class cadastroView extends javax.swing.JFrame {
 
     private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_txt_senhaActionPerformed
 
     private void txt_senhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaKeyTyped
         // TODO add your handling code here:
         char vchar = evt.getKeyChar();
-        if (txt_senha.getText().length() >= 11) {
+        if ((vchar == KeyEvent.VK_BACK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_senha.getText().length() >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_senhaKeyTyped
+
+    private void txt_nomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nomeKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+
+    if(!(Character.isAlphabetic(c) ||  (c==KeyEvent.VK_BACK_SPACE)||  c==KeyEvent.VK_DELETE || c==KeyEvent.VK_SPACE ) || txt_nome.getText().length() >= 30)
+        evt.consume();
+    }//GEN-LAST:event_txt_nomeKeyTyped
+
+    private void txt_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyTyped
+        // TODO add your handling code here:
+        char vchar = evt.getKeyChar();
+        if ((vchar == KeyEvent.VK_BACK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_email.getText().length() >= 60) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_emailKeyTyped
 
     /**
      * @param args the command line arguments
@@ -254,6 +281,6 @@ public class cadastroView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txt_cpf;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_nome;
-    private javax.swing.JTextField txt_senha;
+    private javax.swing.JPasswordField txt_senha;
     // End of variables declaration//GEN-END:variables
 }
