@@ -24,7 +24,7 @@ public class ItemDAO implements DAO<Item>{
     private Leilaomodel leilaomodel;
 
     @Override
-    public boolean inserir(Leilaomodel obj)
+    public boolean inserir(Item obj)
             throws SQLException,
             ClassNotFoundException {
         String sql = "INSERT INTO Leilao (nome, lance, descricao) "
@@ -50,7 +50,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public boolean alterar(Leilaomodel obj)
+    public boolean alterar(Item obj)
             throws SQLException,
             ClassNotFoundException {
 
@@ -75,7 +75,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public boolean excluir(Leilaomodel obj)
+    public boolean excluir(Item obj)
             throws SQLException, ClassNotFoundException {
 
         String sql = "DELETE FROM Leilao WHERE id = ?";
@@ -97,7 +97,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public Leilaomodel pesquisar(Leilaomodel obj)
+    public Leilaomodel pesquisar(Item obj)
             throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT * FROM Leilao "
@@ -123,7 +123,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public List<Leilaomodel> listar(String criterio) 
+    public List<Item> listar(String criterio) 
             throws SQLException, 
             ClassNotFoundException {
         String sql = "SELECT * FROM Leilao ";
@@ -137,7 +137,7 @@ public class ItemDAO implements DAO<Item>{
         pst = Banco.getConexao().prepareStatement(sql);
         //executar comando SQL
         rs = pst.executeQuery();
-        List<Leilaomodel> leiloes = new ArrayList<>();
+        List<Item> leiloes = new ArrayList<>();
         while (rs.next()) { //percorre todos os registros
             leilaomodel = new Leilaomodel();
             leilaomodel.setId(rs.getInt("id"));
