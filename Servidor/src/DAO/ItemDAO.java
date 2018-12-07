@@ -20,8 +20,8 @@ public class ItemDAO implements DAO<Item>{
     private PreparedStatement pst;
     //Para conter o resultado de um SELECT
     private ResultSet rs;
-    //Para representar um objeto leilaomodel
-    private Leilaomodel leilaomodel;
+    //Para representar um objeto
+    private Item itemModel;
 
     @Override
     public boolean inserir(Item obj)
@@ -36,7 +36,7 @@ public class ItemDAO implements DAO<Item>{
         //preencher os parametros do SQL
         
         pst.setString(1, obj.getNome());
-        pst.setFloat(2, obj.getLance());
+//        pst.setFloat(2, obj.getLance());
         pst.setString(3, obj.getDescricao());
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu
@@ -97,7 +97,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public Leilaomodel pesquisar(Item obj)
+    public Item pesquisar(Item obj)
             throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT * FROM Leilao "
@@ -112,14 +112,14 @@ public class ItemDAO implements DAO<Item>{
         rs = pst.executeQuery();
         //verifica se encontrou o genero
         if (rs.next()) { //encontrou
-            leilaomodel = obj;
-            leilaomodel.setDescricao(rs.getString("descricao"));
+            itemModel = obj;
+            itemModel.setDescricao(rs.getString("descricao"));
         } else {
-            leilaomodel = null;
+            itemModel = null;
         }
         rs.close(); //fecha o resultSet
         Banco.desconectar();
-        return leilaomodel;
+        return itemModel;
     }
 
     @Override
@@ -139,10 +139,10 @@ public class ItemDAO implements DAO<Item>{
         rs = pst.executeQuery();
         List<Item> leiloes = new ArrayList<>();
         while (rs.next()) { //percorre todos os registros
-            leilaomodel = new Leilaomodel();
-            leilaomodel.setId(rs.getInt("id"));
-            leilaomodel.setDescricao(rs.getString("descricao"));
-            leiloes.add(leilaomodel);
+            itemModel = new Item();
+            itemModel.setId(rs.getInt("id"));
+            itemModel.setDescricao(rs.getString("descricao"));
+            leiloes.add(itemModel);
         } 
         rs.close(); //fecha o resultSet
         Banco.desconectar();
@@ -150,7 +150,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public Leilaomodel proximo() 
+    public Item proximo() 
             throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT IFNULL(max(id), 0) + 1 codigo "
@@ -163,11 +163,11 @@ public class ItemDAO implements DAO<Item>{
         rs = pst.executeQuery();
         
         rs.next(); //lê o registro
-        leilaomodel = new Leilaomodel();
-        leilaomodel.setId(rs.getInt("id"));
+        itemModel = new Item();
+        itemModel.setId(rs.getInt("id"));
         rs.close(); //fecha o resultSet
         Banco.desconectar();
-        return leilaomodel;
+        return itemModel;
         
     }
 }
