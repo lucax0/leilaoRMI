@@ -54,13 +54,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btn_remprod" min="-2" pref="87" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="btn_remprod" min="-2" pref="89" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="btn_addprod" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btn_voltartela" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btn_comecar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -90,14 +91,17 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_addprod" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_remprod" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_remprod" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="94" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btn_voltartela" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_voltartela" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_comecar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -123,13 +127,7 @@
         <Component class="javax.swing.JList" name="jList1">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Produto 1"/>
-                <StringItem index="1" value="Produto 2"/>
-                <StringItem index="2" value="Produto 3"/>
-                <StringItem index="3" value="Produto 4"/>
-                <StringItem index="4" value="Produto 5"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -171,11 +169,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ADICIONAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addprodActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_remprod">
       <Properties>
         <Property name="text" type="java.lang.String" value="REMOVER"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_remprodActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_voltartela">
       <Properties>
@@ -184,6 +188,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_voltartelaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_comecar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="COME&#xc7;AR"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

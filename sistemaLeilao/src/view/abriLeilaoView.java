@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Lucas
@@ -17,7 +20,14 @@ public class abriLeilaoView extends javax.swing.JFrame {
     public abriLeilaoView() {
         initComponents();
     }
-
+    DefaultListModel model = new DefaultListModel();
+    public void limparcampos(){
+        txt_descricao.setText("");
+        txt_nomeprod.setText("");
+        txt_senhaprod.setText("");
+        txt_nomeprod.requestFocus();
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,18 +50,23 @@ public class abriLeilaoView extends javax.swing.JFrame {
         btn_addprod = new javax.swing.JButton();
         btn_remprod = new javax.swing.JButton();
         btn_voltartela = new javax.swing.JButton();
+        btn_comecar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ABRIR LEILAO");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Produto 1", "Produto 2", "Produto 3", "Produto 4", "Produto 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
+
+        jLabel2.setText(" Items do Leilao:");
+
+        jLabel3.setText("Nome Produto:");
+
+        jLabel4.setText("Descricao Produto:");
+
+        jLabel5.setText("Senha Produto:");
 
         txt_nomeprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,11 +74,28 @@ public class abriLeilaoView extends javax.swing.JFrame {
             }
         });
 
+        btn_addprod.setText("ADICIONAR");
+        btn_addprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addprodActionPerformed(evt);
+            }
+        });
+
+        btn_remprod.setText("REMOVER");
+        btn_remprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_remprodActionPerformed(evt);
+            }
+        });
+
+        btn_voltartela.setText("VOLTAR");
         btn_voltartela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_voltartelaActionPerformed(evt);
             }
         });
+
+        btn_comecar.setText("COMEÇAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,12 +127,13 @@ public class abriLeilaoView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_remprod, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
+                                .addComponent(btn_remprod, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
                                 .addComponent(btn_addprod))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_voltartela)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_comecar)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -122,13 +155,15 @@ public class abriLeilaoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_addprod)
-                    .addComponent(btn_remprod))
+                    .addComponent(btn_remprod, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_voltartela)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_voltartela)
+                    .addComponent(btn_comecar))
                 .addContainerGap())
         );
 
@@ -145,6 +180,29 @@ public class abriLeilaoView extends javax.swing.JFrame {
         new controleLeilaoView().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltartelaActionPerformed
+
+    private void btn_addprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addprodActionPerformed
+        // TODO add your handling code here:
+       if ((txt_descricao.getText().length() == 0) || (txt_nomeprod.getText().length() == 0) || (txt_senhaprod.getText().length() == 0)){
+           JOptionPane.showMessageDialog(rootPane,
+                    "Um ou mais campos vazios!!!",
+                    "Mensagem ao Usuário",
+                    JOptionPane.WARNING_MESSAGE);
+       }
+       else{
+            jList1.setModel(model);
+            model.addElement(txt_nomeprod.getText());
+            limparcampos();
+       }
+       
+    }//GEN-LAST:event_btn_addprodActionPerformed
+
+    private void btn_remprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remprodActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = jList1.getSelectedIndex();
+        
+        model.removeElementAt(selectedIndex);
+    }//GEN-LAST:event_btn_remprodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +241,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addprod;
+    private javax.swing.JButton btn_comecar;
     private javax.swing.JButton btn_remprod;
     private javax.swing.JButton btn_voltartela;
     private javax.swing.JLabel jLabel1;
