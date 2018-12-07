@@ -16,10 +16,10 @@ public class sistemaLeilao{
       try {
             LocateRegistry.getRegistry("localhost");
             l = (leilaoModel) Naming.lookup("rmi://localhost:9000/LeilaoService" );
+            System.out.println("CONEXAO TRUE");
 	} catch (MalformedURLException | RemoteException | NotBoundException e) {
             e.printStackTrace();
-	}
-        System.out.println("CONEXAO TRUE");
+	}        
         return l;
   }
 
