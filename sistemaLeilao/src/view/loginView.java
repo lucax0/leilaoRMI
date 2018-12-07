@@ -137,7 +137,7 @@ public class loginView extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c=evt.getKeyChar();
 
-    if(!((c==KeyEvent.VK_BACK_SPACE)||  c==KeyEvent.VK_DELETE || c==KeyEvent.VK_SPACE ) || txt_usuario.getText().length() >= 30)
+    if(!(Character.isAlphabetic(c) ||  (c==KeyEvent.VK_BACK_SPACE)||  c==KeyEvent.VK_DELETE || c==KeyEvent.VK_SPACE ) || txt_usuario.getText().length() >= 30)
         evt.consume();
     }//GEN-LAST:event_txt_usuarioKeyTyped
 
