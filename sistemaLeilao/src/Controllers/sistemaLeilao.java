@@ -23,9 +23,8 @@ public class sistemaLeilao{
         return l;
   }
 
-  public boolean login(String user, String senha, leilaoModel server){
-      
-      System.out.println(server.toString());
+  public boolean login(String user, String senha, leilaoModel server){      
+      System.out.println("entrou login");
       boolean loginResult = false;
       try{          
           loginResult = server.login(user, senha);
