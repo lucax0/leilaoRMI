@@ -165,6 +165,7 @@ public class cadastroView extends javax.swing.JFrame {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txt_cpf, txt_email});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
@@ -177,8 +178,11 @@ public class cadastroView extends javax.swing.JFrame {
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
         // TODO add your handling code here:
-        if ((txt_cpf.getText() == "") || (txt_email.getText() == "") || (txt_nome.getText() == "") || (txt_senha.getText() == "") ){
-            
+        if ((txt_cpf.getText().length() == 0) || (txt_email.getText().length() == 0) || (txt_nome.getText().length() == 0) || (txt_senha.getText().length() == 0) ){
+            JOptionPane.showMessageDialog(rootPane,
+                    "Um ou mais campos vazios!!!",
+                    "Mensagem ao Usuário",
+                    JOptionPane.WARNING_MESSAGE);
            
         }
         

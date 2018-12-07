@@ -54,11 +54,17 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jLabel2.setText(" Items do Leilao:");
+
+        jLabel4.setText("Descricao Produto:");
+
         txt_nomeprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nomeprodActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Nome Produto:");
 
         txt_arremate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +72,10 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Valor arremate:");
+
         btn_lance.setBackground(new java.awt.Color(102, 255, 102));
+        btn_lance.setText("DAR LANCE");
         btn_lance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_lanceActionPerformed(evt);
@@ -74,6 +83,7 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
         });
 
         btn_sair.setBackground(new java.awt.Color(255, 0, 0));
+        btn_sair.setText("SAIR");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
@@ -86,7 +96,10 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("Valor do SEU lance:");
+
         btn_arrematar.setBackground(new java.awt.Color(102, 255, 102));
+        btn_arrematar.setText("ARREMATAR");
         btn_arrematar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_arrematarActionPerformed(evt);
@@ -99,8 +112,11 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Valor lance atual:");
+
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CONTROLE LANCE PARTICIPANTE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,6 +202,7 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_nomeprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeprodActionPerformed

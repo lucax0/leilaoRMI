@@ -39,6 +39,7 @@ private int resp;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_parti.setBackground(new java.awt.Color(102, 255, 102));
+        btn_parti.setText("PARTICIPAR");
         btn_parti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_partiActionPerformed(evt);
@@ -54,14 +55,17 @@ private int resp;
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CONTROLE LEILAO PART.");
 
         btn_vizu.setBackground(new java.awt.Color(102, 255, 102));
+        btn_vizu.setText("VIZUALIZAR");
         btn_vizu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_vizuActionPerformed(evt);
             }
         });
 
+        btn_sair.setText("SAIR");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
@@ -103,6 +107,7 @@ private int resp;
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_partiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_partiActionPerformed

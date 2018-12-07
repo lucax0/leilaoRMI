@@ -42,8 +42,10 @@ private int resp;
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CONTROLE LEILAO");
 
         btn_novo.setBackground(new java.awt.Color(102, 255, 102));
+        btn_novo.setText("NOVO LEILAO");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_novoActionPerformed(evt);
@@ -51,6 +53,7 @@ private int resp;
         });
 
         btn_abrir.setBackground(new java.awt.Color(255, 255, 255));
+        btn_abrir.setText("ABRIR LEILAO");
         btn_abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_abrirActionPerformed(evt);
@@ -58,6 +61,7 @@ private int resp;
         });
 
         btn_encerrar.setBackground(new java.awt.Color(255, 51, 51));
+        btn_encerrar.setText("ENCERRAR LEILAO");
         btn_encerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_encerrarActionPerformed(evt);
@@ -71,6 +75,7 @@ private int resp;
         });
         jScrollPane1.setViewportView(jList1);
 
+        btn_sair.setText("SAIR");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
@@ -119,6 +124,7 @@ private int resp;
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_abrir, btn_encerrar, btn_novo});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed

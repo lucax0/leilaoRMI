@@ -45,6 +45,7 @@ public class controleLance extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         btn_vizu.setBackground(new java.awt.Color(102, 255, 102));
+        btn_vizu.setText("VIZUALIZAR");
         btn_vizu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_vizuActionPerformed(evt);
@@ -52,6 +53,7 @@ public class controleLance extends javax.swing.JFrame {
         });
 
         btn_negar.setBackground(new java.awt.Color(255, 0, 0));
+        btn_negar.setText("NEGAR");
         btn_negar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_negarActionPerformed(evt);
@@ -60,14 +62,17 @@ public class controleLance extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CONTROLE LANCE");
 
         btn_aprovar.setBackground(new java.awt.Color(102, 255, 102));
+        btn_aprovar.setText("APROVAR");
         btn_aprovar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_aprovarActionPerformed(evt);
             }
         });
 
+        btn_voltar.setText("VOLTAR");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_voltarActionPerformed(evt);
@@ -116,6 +121,7 @@ public class controleLance extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_vizuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_vizuActionPerformed
