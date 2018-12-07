@@ -9,7 +9,7 @@ public class ServidorLeilao {
     public static void main(String[] args) {
     }
     
-    public Servidor(){
+    public ServidorLeilao(){
         try {
             //registra o servidor evitando de faze-lo  no console
             LocateRegistry.createRegistry(9000);
