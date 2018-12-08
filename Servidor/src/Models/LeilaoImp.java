@@ -30,4 +30,23 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
         }
         return false;    }
 
+    @Override
+    public boolean inserir(String user, String senha, String nome, String CPF, int tipoAcc) throws RemoteException {
+        try {
+            Usuario usuario = new Usuario();
+            usuario.setCpf(CPF);
+            usuario.setEmail(user);
+            usuario.setTipo(1);
+            usuario.setSenha(senha);
+            if(usuarioDAO.inserir(usuario)){
+                return true;
+            }            
+        } catch (Exception e) {
+            System.out.println("Erro nao inserir:" + e);
+        }
+        return false;
+    }
+    
+    
+
 }

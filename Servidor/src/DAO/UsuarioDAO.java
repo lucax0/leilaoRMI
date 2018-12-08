@@ -29,7 +29,7 @@ public class UsuarioDAO implements DAO<Usuario> {
                 usuario.setCpf(rs.getString("usuario.cpf"));
                 return usuario;
             } else {
-                System.out.println("Sql nao retornou resultados");
+                System.out.println("SQL nao retornou resultados");
             }
             rs.close(); //fecha o resultSet
             Banco.desconectar();
@@ -42,7 +42,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     @Override
     public boolean inserir(Usuario obj) throws SQLException,ClassNotFoundException {
         
-        String sql = "INSERT INTO Usuario (nome, cpf, senha, email, tipousuario) values (?, ?, ?, ? ,?)";
+        String sql = "INSERT INTO usuario (nome, email, cpf, senha, tipo) values (?, ?, ?, ? ,?)";
 
         //abre o banco
         Banco.conectar();
@@ -50,9 +50,9 @@ public class UsuarioDAO implements DAO<Usuario> {
         //preencher os parametros do SQL
 
         pst.setString(1, obj.getNome());
-        pst.setString(2, obj.getCpf());
-        pst.setString(3, obj.getSenha());
-        pst.setString(4, obj.getEmail());
+        pst.setString(2, obj.getEmail());
+        pst.setString(3, obj.getCpf());
+        pst.setString(4, obj.getSenha());
         pst.setInt(5, obj.getTipo());
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu

@@ -7,5 +7,5 @@ import java.rmi.RemoteException;
  */
 public interface Leilao extends Remote {
     public boolean login(String user, String senha) throws RemoteException;
-    
+    public boolean cadastro(String user, String senha, String nome, String CPF, int tipoAcc) throws RemoteException;
 }
