@@ -30,6 +30,7 @@ public class UsuarioDAO implements DAO<Usuario> {
                 return usuario;
             } else {
                 System.out.println("SQL nao retornou resultados");
+                usuario = null;
             }
             rs.close(); //fecha o resultSet
             Banco.desconectar();

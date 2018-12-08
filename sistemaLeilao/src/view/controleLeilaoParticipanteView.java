@@ -143,10 +143,9 @@ private int resp;
         resp = JOptionPane.showConfirmDialog(this, "Deseja realmente sair ?", "Saindo do programa!!!", JOptionPane.YES_NO_OPTION);
         if (resp == 1){
             
-            new controleLeilaoView().setVisible(true);
-            this.dispose();
         }else{
-            
+         
+            this.dispose();
         }
     }//GEN-LAST:event_btn_sairActionPerformed
 
