@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
+
 import Models.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,18 +7,38 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Victor
- */
-public class UsuarioDAO implements DAO<Usuario>{
-//variaveis auxiliares
-    //Para conter os comandos DML
+public class UsuarioDAO implements DAO<Usuario> {
+
     private PreparedStatement pst;
     //Para conter o resultado de um SELECT
     private ResultSet rs;
     //Para representar um objeto Usuario
     private Usuario usuario;
+
+    public Usuario login(String user, String senha) throws SQLException, ClassNotFoundException {
+        try {
+            String sql = "SELECT email ,senha FROM Usuario WHERE email = ? AND senha = ?";
+            Banco.conectar();
+            pst = Banco.getConexao().prepareStatement(sql);
+            pst.setString(1, user);
+            pst.setString(2, senha);
+            //executar comando SQL
+            rs = pst.executeQuery();
+            //verifica se encontrou o Usuario
+            if (rs.next()) { //encontrou
+                usuario.setEmail(rs.getString("email"));
+                usuario.setCpf(rs.getString("cpf"));
+                return usuario;
+            } else {
+                usuario = null;                
+            }
+            rs.close(); //fecha o resultSet
+            Banco.desconectar();
+        } catch (Exception e) {
+            System.out.println("erro no login:" + e);
+        }
+        return usuario;
+    }
 
     @Override
     public boolean inserir(Usuario obj)
@@ -35,7 +51,7 @@ public class UsuarioDAO implements DAO<Usuario>{
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
-        
+
         pst.setString(1, obj.getNome());
         pst.setString(2, obj.getCpf());
         pst.setString(3, obj.getSenha());
@@ -115,9 +131,9 @@ public class UsuarioDAO implements DAO<Usuario>{
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
-        
+
         pst.setString(1, obj.getCpf());
-        
+
         //executar comando SQL
         rs = pst.executeQuery();
         //verifica se encontrou o Usuario
@@ -133,8 +149,8 @@ public class UsuarioDAO implements DAO<Usuario>{
     }
 
     @Override
-    public List<Usuario> listar(String criterio) 
-            throws SQLException, 
+    public List<Usuario> listar(String criterio)
+            throws SQLException,
             ClassNotFoundException {
         String sql = "SELECT * FROM Usuario ";
 
@@ -155,14 +171,14 @@ public class UsuarioDAO implements DAO<Usuario>{
             usuario.setNome(rs.getString("nome"));
             usuario.setSenha(rs.getString("senha"));
             usuarios.add(usuario);
-        } 
+        }
         rs.close(); //fecha o resultSet
         Banco.desconectar();
         return usuarios;
     }
 
     @Override
-    public Usuario proximo() 
+    public Usuario proximo()
             throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT IFNULL(max(cpf), 0) + 1 codigo "
@@ -173,13 +189,13 @@ public class UsuarioDAO implements DAO<Usuario>{
         pst = Banco.getConexao().prepareStatement(sql);
         //executar comando SQL
         rs = pst.executeQuery();
-        
+
         rs.next(); //lê o registro
         usuario = new Usuario();
         usuario.setCpf(rs.getString("cpf"));
         rs.close(); //fecha o resultSet
         Banco.desconectar();
         return usuario;
-        
+
     }
 }

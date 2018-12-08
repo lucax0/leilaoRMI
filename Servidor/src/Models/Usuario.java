@@ -5,11 +5,9 @@
  */
 package Models;
 
-/**
- *
- * @author Victor
- */
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario  implements Serializable{
     private String nome;
     private String cpf;
     private String senha;
