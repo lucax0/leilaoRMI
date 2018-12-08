@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import Controllers.sistemaLeilao;
@@ -10,7 +5,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Lucas
  */
 public class cadastroView extends javax.swing.JFrame {
@@ -187,7 +181,6 @@ public class cadastroView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Um ou mais campos vazios!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                
                 if (server.inserir(txt_email.getText(), txt_senha.getText(), txt_nome.getText(), txt_cpf.getText().replace("-", "").replace(".", ""), 1, server.conectarServidor())) {
                     JOptionPane.showMessageDialog(rootPane, "Cadastro com sucesso!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
                     limpaCampos();

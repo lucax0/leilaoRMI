@@ -21,18 +21,19 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     }
 
     @Override
-    public boolean login(String email, String senha) throws RemoteException {
+    public Usuario login(String user, String senha) throws RemoteException {
+            Usuario usuario = new Usuario();
         try {
-            Usuario usuario = usuarioDAO.login(email, senha);
+            usuario = usuarioDAO.login(user, senha);
             if (usuario != null) {
                 System.out.println("SQL login deu certo");
-                return true;
+                return usuario;
             }
-            return false;
+            return usuario;
         } catch (Exception e) {
             System.out.println("Falha no SQL de login:" + e);
         }
-        return false;
+        return usuario;
     }
 
     @Override

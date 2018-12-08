@@ -3,6 +3,7 @@ package view;
 import Controllers.sistemaLeilao;
 import java.awt.event.KeyEvent;
 import Models.Leilao;
+import Models.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -119,14 +120,14 @@ public class loginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
-        boolean resultLogin = server.login(txt_usuario.getText(), txt_senha.getText(), server.conectarServidor());
-        if(resultLogin){
+        Usuario resultLogin = server.login(txt_usuario.getText(), txt_senha.getText(), server.conectarServidor());
+        System.out.println(resultLogin.getNome());
+        if(resultLogin != null){
             this.dispose();
             new controleLeilaoParticipanteView().setVisible(true);
         }else{
             JOptionPane.showMessageDialog(rootPane, "Dados invalidos!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         }
-            
     }//GEN-LAST:event_btn_entrarActionPerformed
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed

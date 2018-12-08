@@ -6,6 +6,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import Models.Leilao;
+import Models.Usuario;
 /**
  * @author Lucas
  */
@@ -24,8 +25,8 @@ public class sistemaLeilao{
         return l;
   }
 
-  public boolean login(String user, String senha, Leilao server){      
-      boolean loginResult = false;
+  public Usuario login(String user, String senha, Leilao server){      
+      Usuario loginResult = null;
       try{        
           loginResult = server.login(user, senha);
           System.out.println("resultado Login:" + loginResult);

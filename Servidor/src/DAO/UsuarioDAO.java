@@ -25,6 +25,7 @@ public class UsuarioDAO implements DAO<Usuario> {
             //verifica se encontrou o Usuario
             if (rs.next()) { //encontrou
                 usuario.setId(rs.getInt("id"));
+                usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("usuario.email"));
                 usuario.setCpf(rs.getString("usuario.cpf"));
                 return usuario;
