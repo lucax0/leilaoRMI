@@ -17,6 +17,7 @@ public class Item {
     private int id;
     private float valormin;
     private float arremate;
+    private String senha;
 
     public String getNome() {
         return nome;
@@ -72,6 +73,14 @@ public class Item {
 
     public void setArremate(float arremate) {
         this.arremate = arremate;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
 }

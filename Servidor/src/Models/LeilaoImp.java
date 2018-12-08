@@ -51,7 +51,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
         return false;
     }
     
-    public boolean inserir(int id, String nome, String vendedor, String CPF, String Descricao, float valormin, float arremate) throws RemoteException {
+    public boolean inserir(int id, String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate) throws RemoteException {
         try {
             Item item = new Item();
             item.setId(id);
@@ -60,6 +60,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             item.setCpf(CPF);
             item.setDescricao(Descricao);
             item.setValormin(valormin);
+            item.setSenha(senha);
             item.setArremate(arremate);
             if(itemDAO.inserir(item)){
                 return true;
