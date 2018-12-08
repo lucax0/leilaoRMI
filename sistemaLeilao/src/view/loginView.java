@@ -3,6 +3,7 @@ package view;
 import Controllers.sistemaLeilao;
 import java.awt.event.KeyEvent;
 import Models.Leilao;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -122,19 +123,19 @@ public class loginView extends javax.swing.JFrame {
         if(resultLogin){
             this.dispose();
             new controleLeilaoParticipanteView().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Dados invalidos!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         }
+            
     }//GEN-LAST:event_btn_entrarActionPerformed
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
-        // TODO add your handling code here:
         this.dispose();
         new cadastroView().setVisible(true);
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void txt_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyTyped
-        // TODO add your handling code here:
         char c=evt.getKeyChar();
-
     if(txt_usuario.getText().length() >= 30)
         evt.consume();
     }//GEN-LAST:event_txt_usuarioKeyTyped
