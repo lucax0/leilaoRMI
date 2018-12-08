@@ -119,7 +119,10 @@ public class loginView extends javax.swing.JFrame {
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         boolean resultLogin = server.login(txt_usuario.getText(), txt_senha.getText(), server.conectarServidor());
-        System.out.println(resultLogin);
+        if(resultLogin){
+            this.dispose();
+            new controleLeilaoParticipanteView().setVisible(true);
+        }
     }//GEN-LAST:event_btn_entrarActionPerformed
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed

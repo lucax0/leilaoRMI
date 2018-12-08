@@ -26,8 +26,8 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             }
             return false;
         } catch (Exception e) {
-            System.out.println("Falha no SQL de login:" + e);            
-        }    
+            System.out.println("Falha no SQL de login:" + e);
+        }
         return false;    }
 
 }
