@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class LeilaoImp extends UnicastRemoteObject implements Leilao {
 
     private boolean login;
-    UsuarioDAO usuarioDAO;
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     public LeilaoImp() throws RemoteException {
         super();
@@ -19,8 +19,8 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     @Override
     public boolean login(String email, String senha) throws RemoteException {
         try {
-            Usuario user = usuarioDAO.login(email, senha);
-            if (user != null) {
+            Usuario usuario = usuarioDAO.login(email, senha);
+            if (usuario != null) {
             System.out.println("SQL login deu certo");
             return true;
             }
