@@ -10,14 +10,12 @@ import java.util.List;
 public class UsuarioDAO implements DAO<Usuario> {
 
     private PreparedStatement pst;
-    //Para conter o resultado de um SELECT
     private ResultSet rs;
-    //Para representar um objeto Usuario
-    private Usuario usuario;
 
     public Usuario login(String user, String senha) throws SQLException, ClassNotFoundException {
+        Usuario usuario = new Usuario();
         try {
-            String sql = "SELECT email ,senha FROM Usuario WHERE email = ? AND senha = ?";
+            String sql = "SELECT * FROM usuario WHERE usuario.email = ? AND usuario.senha = ?";
             Banco.conectar();
             pst = Banco.getConexao().prepareStatement(sql);
             pst.setString(1, user);
@@ -26,11 +24,12 @@ public class UsuarioDAO implements DAO<Usuario> {
             rs = pst.executeQuery();
             //verifica se encontrou o Usuario
             if (rs.next()) { //encontrou
-                usuario.setEmail(rs.getString("email"));
-                usuario.setCpf(rs.getString("cpf"));
+                usuario.setId(rs.getInt("id"));
+                usuario.setEmail(rs.getString("usuario.email"));
+                usuario.setCpf(rs.getString("usuario.cpf"));
                 return usuario;
             } else {
-                usuario = null;                
+                System.out.println("Sql nao retornou resultados");
             }
             rs.close(); //fecha o resultSet
             Banco.desconectar();
@@ -41,11 +40,9 @@ public class UsuarioDAO implements DAO<Usuario> {
     }
 
     @Override
-    public boolean inserir(Usuario obj)
-            throws SQLException,
-            ClassNotFoundException {
-        String sql = "INSERT INTO Usuario (nome, cpf, senha, email, tipousuario) "
-                + "values (?, ?, ?, ? ,?)";
+    public boolean inserir(Usuario obj) throws SQLException,ClassNotFoundException {
+        
+        String sql = "INSERT INTO Usuario (nome, cpf, senha, email, tipousuario) values (?, ?, ?, ? ,?)";
 
         //abre o banco
         Banco.conectar();
@@ -96,8 +93,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     }
 
     @Override
-    public boolean excluir(Usuario obj)
-            throws SQLException, ClassNotFoundException {
+    public boolean excluir(Usuario obj) throws SQLException, ClassNotFoundException {
 
         String sql = "DELETE FROM Usuario WHERE codGenero = ?";
 
@@ -121,9 +117,8 @@ public class UsuarioDAO implements DAO<Usuario> {
     }
 
     @Override
-    public Usuario pesquisar(Usuario obj)
-            throws SQLException, ClassNotFoundException {
-
+    public Usuario pesquisar(Usuario obj) throws SQLException, ClassNotFoundException {
+        Usuario usuario = new Usuario();
         String sql = "SELECT * FROM Usuario "
                 + "WHERE cpf = ?";
 
@@ -149,30 +144,29 @@ public class UsuarioDAO implements DAO<Usuario> {
     }
 
     @Override
-    public List<Usuario> listar(String criterio)
-            throws SQLException,
-            ClassNotFoundException {
+    public List<Usuario> listar(String criterio)throws SQLException, ClassNotFoundException {
+        
         String sql = "SELECT * FROM Usuario ";
-
+        
         if (criterio.length() != 0) {
             sql += "WHERE " + criterio;
         }
 
-        //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
-        //executar comando SQL
         rs = pst.executeQuery();
         List<Usuario> usuarios = new ArrayList<>();
+        
         while (rs.next()) { //percorre todos os registros
-            usuario = new Usuario();
+            Usuario usuario = new Usuario();
             usuario.setCpf(rs.getString("cpf"));
             usuario.setEmail(rs.getString("email"));
             usuario.setNome(rs.getString("nome"));
             usuario.setSenha(rs.getString("senha"));
             usuarios.add(usuario);
         }
-        rs.close(); //fecha o resultSet
+        
+        rs.close();
         Banco.desconectar();
         return usuarios;
     }
@@ -180,6 +174,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     @Override
     public Usuario proximo()
             throws SQLException, ClassNotFoundException {
+        Usuario usuario = new Usuario();
 
         String sql = "SELECT IFNULL(max(cpf), 0) + 1 codigo "
                 + "FROM Usuario";
