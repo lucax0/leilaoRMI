@@ -25,30 +25,25 @@ public class sistemaLeilao{
   }
 
   public boolean login(String user, String senha, Leilao server){      
-      System.out.println("entrou login");
       boolean loginResult = false;
       try{        
           loginResult = server.login(user, senha);
-          System.out.println("resultado:" + loginResult);
+//          System.out.println("resultado:" + loginResult);
       } catch (RemoteException e){
           e.printStackTrace();
       }
       return loginResult;
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  public boolean inserir(String user, String senha, String nome, String CPF, int tipoAcc ,Leilao server){
+      boolean cadastroResult = false;
+      try {
+          cadastroResult = server.inserir(user, senha, nome, CPF , tipoAcc);
+          return cadastroResult;
+      } catch (Exception e) {
+          System.out.println("Erro ao inserir:" +e);
+      }
+      return cadastroResult;
+  }
   
 }

@@ -43,18 +43,14 @@ public class UsuarioDAO implements DAO<Usuario> {
     public boolean inserir(Usuario obj) throws SQLException,ClassNotFoundException {
         
         String sql = "INSERT INTO usuario (nome, email, cpf, senha, tipo) values (?, ?, ?, ? ,?)";
-
-        //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
-
         pst.setString(1, obj.getNome());
         pst.setString(2, obj.getEmail());
         pst.setString(3, obj.getCpf());
         pst.setString(4, obj.getSenha());
         pst.setInt(5, obj.getTipo());
-        //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu
             Banco.desconectar();
             return false;
