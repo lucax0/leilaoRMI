@@ -15,6 +15,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     UsuarioDAO usuarioDAO = new UsuarioDAO();
     ItemDAO itemDAO = new ItemDAO();
     LeilaoDAO leilaoDAO = new LeilaoDAO();
+
     public LeilaoImp() throws RemoteException {
         super();
     }
@@ -24,14 +25,15 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
         try {
             Usuario usuario = usuarioDAO.login(email, senha);
             if (usuario != null) {
-            System.out.println("SQL login deu certo");
-            return true;
+                System.out.println("SQL login deu certo");
+                return true;
             }
             return false;
         } catch (Exception e) {
             System.out.println("Falha no SQL de login:" + e);
         }
-        return false;    }
+        return false;
+    }
 
     @Override
     public boolean inserir(String user, String senha, String nome, String CPF, int tipoAcc) throws RemoteException {
@@ -42,19 +44,19 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             usuario.setEmail(user);
             usuario.setTipo(1);
             usuario.setSenha(senha);
-            if(usuarioDAO.inserir(usuario)){
+            if (usuarioDAO.inserir(usuario)) {
                 return true;
-            }            
+            }
         } catch (Exception e) {
             System.out.println("Erro nao inserir:" + e);
         }
         return false;
     }
-    
-    public boolean inserir(int id, String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate) throws RemoteException {
+
+    @Override
+    public boolean inserirItem(String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate) throws RemoteException {
         try {
             Item item = new Item();
-            item.setId(id);
             item.setNome(nome);
             item.setVendedor(vendedor);
             item.setCpf(CPF);
@@ -62,15 +64,12 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             item.setValormin(valormin);
             item.setSenha(senha);
             item.setArremate(arremate);
-            if(itemDAO.inserir(item)){
+            if (itemDAO.inserir(item)) {
                 return true;
-            }            
+            }
         } catch (Exception e) {
             System.out.println("Erro nao inserir:" + e);
         }
         return false;
     }
-    
-    
-
 }

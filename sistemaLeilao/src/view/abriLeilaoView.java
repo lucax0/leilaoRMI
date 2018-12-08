@@ -216,8 +216,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
        }
        else{
            try {
-                
-                if (server.inseriritem(txt_nomeprod.getText(), txt_descricao.getText(), txt_valormin.getText(), txt_senhaprod.getText(), txt_arremate.getText(), 1, server.conectarServidor())) {
+                if (server.inserirItem(txt_nomeprod.getText(), txt_descricao.getText(), txt_valormin.getText(), txt_senhaprod.getText(),10, txt_arremate.getText(), 10, server.conectarServidor())) {
                     JOptionPane.showMessageDialog(rootPane, "Cadastro com sucesso!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
                     limparcampos();
                     new loginView().setVisible(true);

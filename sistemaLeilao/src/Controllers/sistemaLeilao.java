@@ -46,10 +46,10 @@ public class sistemaLeilao{
       return cadastroResult;
   }
   
-  public boolean inseriritem(int id, String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate, Leilao server){
+  public boolean inserirItem(String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate, Leilao server){
       boolean cadastroResult = false;
       try {
-          cadastroResult = server.inseriritem(id,nome, vendedor , CPF, Descricao, valormin, senha, arremate);
+          cadastroResult = server.inserirItem(nome, vendedor , CPF, Descricao, valormin, senha, arremate);
           return cadastroResult;
       } catch (Exception e) {
           System.out.println("Erro ao inserir:" +e);
