@@ -23,13 +23,12 @@ import javax.swing.DefaultComboBoxModel;
      * Creates new form controleLeilaoParticipanteView
      */
     public controleLeilaoParticipanteView() {
-        initComponents();
-        getContentPane().setBackground(new java.awt.Color(102,204,255));
-        preencherLeilao();
     }
     
     controleLeilaoParticipanteView(Usuario resultLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
+        getContentPane().setBackground(new java.awt.Color(102,204,255));
+        preencherLeilao();
     }
 
     private void preencherLeilao() {

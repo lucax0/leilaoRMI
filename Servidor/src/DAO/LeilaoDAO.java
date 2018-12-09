@@ -140,6 +140,7 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
         while (rs.next()) { //percorre todos os registros
             leilaomodel = new Leilaomodel();
             leilaomodel.setId(rs.getInt("id"));
+            leilaomodel.setNome(rs.getString("nome"));
             leilaomodel.setStatus(rs.getInt("sstatus"));
             leilaomodel.setDescricao(rs.getString("descricao"));
             leiloes.add(leilaomodel);

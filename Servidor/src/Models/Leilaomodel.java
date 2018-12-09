@@ -3,7 +3,8 @@ package Models;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Leilaomodel implements Serializable{
+public class Leilaomodel implements Serializable {
+
     private int id;
     private int criadoPor;
     private String nome;
@@ -14,6 +15,11 @@ public class Leilaomodel implements Serializable{
     private Date dataFim;
 
     public Leilaomodel() {
+    }
+
+    @Override
+    public String toString() {
+        return "Id=" + id + ", Nome=" + nome;
     }
 
     public Leilaomodel(int id, int criadoPor, String nome, String descricao, float duracao, Date dataInicio, int status, Date dataFim) {
@@ -35,7 +41,6 @@ public class Leilaomodel implements Serializable{
         this.criadoPor = criadoPor;
     }
 
-    
     public int getId() {
         return id;
     }
@@ -91,5 +96,5 @@ public class Leilaomodel implements Serializable{
     public void setdataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
-    
+
 }
