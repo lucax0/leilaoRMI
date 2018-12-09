@@ -57,13 +57,17 @@ sistemaLeilao server = new sistemaLeilao();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cliente Leilão");
+        setMaximumSize(new java.awt.Dimension(578, 421));
+        setMinimumSize(new java.awt.Dimension(578, 421));
+        setPreferredSize(new java.awt.Dimension(578, 421));
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONTROLE LEILAO");
 
         btn_novo.setBackground(new java.awt.Color(102, 255, 102));
-        btn_novo.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_novo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_novo.setText("NOVO LEILAO");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +76,7 @@ sistemaLeilao server = new sistemaLeilao();
         });
 
         btn_abrir.setBackground(new java.awt.Color(51, 102, 255));
-        btn_abrir.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_abrir.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_abrir.setText("ABRIR LEILAO");
         btn_abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +85,7 @@ sistemaLeilao server = new sistemaLeilao();
         });
 
         btn_encerrar.setBackground(new java.awt.Color(255, 51, 51));
-        btn_encerrar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_encerrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_encerrar.setText("ENCERRAR LEILAO");
         btn_encerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,11 +94,18 @@ sistemaLeilao server = new sistemaLeilao();
         });
 
         btn_sair.setBackground(new java.awt.Color(255, 51, 51));
-        btn_sair.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_sair.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_sair.setText("SAIR");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
+            }
+        });
+
+        cmb_leilao.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        cmb_leilao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_leilaoActionPerformed(evt);
             }
         });
 
@@ -107,20 +118,19 @@ sistemaLeilao server = new sistemaLeilao();
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_novo)
-                        .addGap(48, 48, 48)
-                        .addComponent(btn_abrir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(btn_encerrar))
-                    .addComponent(cmb_leilao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmb_leilao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btn_novo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                                .addComponent(btn_abrir)
+                                .addGap(57, 57, 57)
+                                .addComponent(btn_encerrar)))
+                        .addContainerGap())))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_abrir, btn_encerrar, btn_novo});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -132,8 +142,8 @@ sistemaLeilao server = new sistemaLeilao();
                     .addComponent(btn_abrir))
                 .addGap(18, 18, 18)
                 .addComponent(cmb_leilao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(btn_sair, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -170,6 +180,10 @@ sistemaLeilao server = new sistemaLeilao();
             
         
     }//GEN-LAST:event_btn_sairActionPerformed
+
+    private void cmb_leilaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_leilaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_leilaoActionPerformed
 
     /**
      * @param args the command line arguments

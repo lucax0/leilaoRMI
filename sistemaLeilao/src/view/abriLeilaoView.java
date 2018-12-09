@@ -62,24 +62,25 @@ public class abriLeilaoView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cliente Leilão");
         setBackground(new java.awt.Color(153, 204, 255));
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABRIR LEILAO");
 
         jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jScrollPane1.setViewportView(jList1);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setText(" Items do Leilao:");
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel3.setText("Nome Produto:");
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setText("Descricao Produto:");
 
-        jLabel5.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel5.setText("Senha Produto:");
 
         txt_nomeprod.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
@@ -94,7 +95,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
         txt_descricao.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
 
         btn_addprod.setBackground(new java.awt.Color(51, 255, 51));
-        btn_addprod.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_addprod.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_addprod.setText("ADICIONAR");
         btn_addprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +104,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
         });
 
         btn_remprod.setBackground(new java.awt.Color(255, 51, 51));
-        btn_remprod.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_remprod.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_remprod.setText("REMOVER");
         btn_remprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +113,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
         });
 
         btn_voltartela.setBackground(new java.awt.Color(255, 51, 51));
-        btn_voltartela.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_voltartela.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_voltartela.setText("VOLTAR");
         btn_voltartela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,13 +122,13 @@ public class abriLeilaoView extends javax.swing.JFrame {
         });
 
         btn_comecar.setBackground(new java.awt.Color(51, 255, 51));
-        btn_comecar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btn_comecar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_comecar.setText("COMEÇAR");
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel6.setText("Valor minimo:");
 
-        jLabel7.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel7.setText("Valor Arremate:");
 
         txt_valormin.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
@@ -173,8 +174,8 @@ public class abriLeilaoView extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txt_arremate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_remprod, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(41, 41, 41)
+                                        .addComponent(btn_remprod)))))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btn_comecar)
@@ -225,7 +226,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_voltartela, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                            .addComponent(btn_voltartela, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                             .addComponent(btn_comecar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
