@@ -5,15 +5,24 @@
  */
 package view;
 
+import Controllers.sistemaLeilao;
 import Models.Usuario;
 import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
+import Models.Leilaomodel;
+import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
  * @author Lucas
  */
-public class controleLeilaoParticipanteView extends javax.swing.JFrame {
-private int resp;
+    public class controleLeilaoParticipanteView extends javax.swing.JFrame {
+        
+    private int resp;
+    sistemaLeilao server = new sistemaLeilao();
+    private Leilaomodel leilao;
+    private DefaultListModel<Leilaomodel> model;
     /**
      * Creates new form controleLeilaoParticipanteView
      */
@@ -21,10 +30,32 @@ private int resp;
         initComponents();
     }
 
+        
+    
     controleLeilaoParticipanteView(Usuario resultLogin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    private void preencheCombo() {
+        java.util.List<Leilaomodel> leiloes;
+        try {
+            server.preencherleilao(leilao, server.conectarServidor());
+            //preenche a lista
+            leiloes = server.preencherleilao("");
+            //preencher o modelo a partir da lista
+            model = new DefaultListModel<>
+                    (leiloes.toArray(new Leilaomodel[0]));
+            //jogar o model na comboBox
+            jList1.setModel(model);
+                    
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, 
+                    "SQL:" + ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(rootPane, 
+                    "Class:" + ex.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

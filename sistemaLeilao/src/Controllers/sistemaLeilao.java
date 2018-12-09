@@ -68,5 +68,15 @@ public class sistemaLeilao{
       }
       return cadastroLeilaoResult;
   }
+    public boolean preencherleilao(Leilaomodel leilaoModel ,Leilao server){
+      boolean preencherleilao = false;
+      try {
+          preencherleilao = server.preencherLeilao(leilaoModel);
+          return preencherleilao;
+      } catch (Exception e) {
+          System.out.println("Erro ao preencher:" +e);
+      }
+      return preencherleilao;
+  }
   
 }
