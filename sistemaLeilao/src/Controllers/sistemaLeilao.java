@@ -29,7 +29,6 @@ public class sistemaLeilao{
       Usuario loginResult = null;
       try{        
           loginResult = server.login(user, senha);
-          System.out.println("resultado Login:" + loginResult);
       } catch (RemoteException e){
           e.printStackTrace();
       }

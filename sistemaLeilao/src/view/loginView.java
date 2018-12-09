@@ -121,10 +121,15 @@ public class loginView extends javax.swing.JFrame {
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         Usuario resultLogin = server.login(txt_usuario.getText(), txt_senha.getText(), server.conectarServidor());
-        System.out.println(resultLogin.getNome());
         if(resultLogin != null){
-            this.dispose();
-            new controleLeilaoParticipanteView().setVisible(true);
+            System.out.println(resultLogin.getTipo());
+            if(resultLogin.getTipo() == 1){
+                this.dispose();
+                new controleLeilaoParticipanteView().setVisible(true);                
+            }else{
+                this.dispose();
+                new controleLeilaoView().setVisible(true); 
+            }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Dados invalidos!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         }

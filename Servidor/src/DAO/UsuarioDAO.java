@@ -27,6 +27,8 @@ public class UsuarioDAO implements DAO<Usuario> {
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("usuario.email"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setTipo(rs.getInt("tipo"));
                 usuario.setCpf(rs.getString("usuario.cpf"));
                 return usuario;
             } else {
@@ -64,9 +66,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     }
 
     @Override
-    public boolean alterar(Usuario obj)
-            throws SQLException,
-            ClassNotFoundException {
+    public boolean alterar(Usuario obj) throws SQLException,ClassNotFoundException {
 
         String sql = "UPDATE Usuario SET descricao = ? "
                 + "WHERE codGenero = ?";
