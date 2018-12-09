@@ -78,6 +78,7 @@ public class controleLance extends javax.swing.JFrame {
 
         btn_voltar.setBackground(new java.awt.Color(255, 51, 51));
         btn_voltar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout-icon (1).png"))); // NOI18N
         btn_voltar.setText("VOLTAR");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +105,7 @@ public class controleLance extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
