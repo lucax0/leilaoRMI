@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Lucas
@@ -111,6 +113,11 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
         txt_seulance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_seulanceActionPerformed(evt);
+            }
+        });
+        txt_seulance.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_seulanceKeyTyped(evt);
             }
         });
 
@@ -257,6 +264,14 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
     private void txt_lanceatualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_lanceatualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_lanceatualActionPerformed
+
+    private void txt_seulanceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_seulanceKeyTyped
+        // TODO add your handling code here:
+        char vchar = evt.getKeyChar();
+        if ((Character.isAlphabetic(vchar)) || (vchar == KeyEvent.VK_SPACE) || (vchar == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_seulanceKeyTyped
 
     /**
      * @param args the command line arguments
