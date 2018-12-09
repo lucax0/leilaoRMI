@@ -25,7 +25,7 @@ public class ItemDAO implements DAO<Item>{
 
     @Override
     public boolean inserir(Item obj)throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO item (idLeilao,nome, vendedor, cpf, descricao, valormin, senha, valorarremate) values ( ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO item (idLeilao,nome, vendedor, cpf, descricao, valormin, senha, valorarremate, lance) values ( ?, ?, ?, ?, ?, ?, ?, ?)";
 
         //abre o banco
         Banco.conectar();
@@ -40,6 +40,7 @@ public class ItemDAO implements DAO<Item>{
         pst.setFloat(6, obj.getValormin());
         pst.setString(7, obj.getSenha());
         pst.setFloat(8, obj.getArremate());
+        pst.setFloat(9, obj.getValormin());
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu
             Banco.desconectar();

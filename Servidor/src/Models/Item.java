@@ -15,7 +15,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String nome, String cpf, String vendedor, String descricao, int idLeilao, int id, float valormin, float arremate, String senha) {
+    public Item(String nome, String cpf, String vendedor, String descricao, int idLeilao, int id, float valormin, float arremate, String senha,float lance) {
         this.nome = nome;
         this.cpf = cpf;
         this.vendedor = vendedor;
@@ -25,6 +25,7 @@ public class Item {
         this.valormin = valormin;
         this.arremate = arremate;
         this.senha = senha;
+        this.lance = valormin;
     }
     
     public int getIdLeilao() {
