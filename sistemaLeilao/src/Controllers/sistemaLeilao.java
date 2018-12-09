@@ -7,6 +7,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import Models.Leilao;
+import Models.Leilaomodel;
 import Models.Usuario;
 /**
  * @author Lucas
@@ -56,6 +57,16 @@ public class sistemaLeilao{
           System.out.println("Erro ao inserir:" +e);
       }
       return cadastroItemResult;
+  }
+    public boolean inserirLeilao(Leilaomodel leilaoModel ,Leilao server){
+      boolean cadastroLeilaoResult = false;
+      try {
+          cadastroLeilaoResult = server.inserirLeilao(leilaoModel);
+          return cadastroLeilaoResult;
+      } catch (Exception e) {
+          System.out.println("Erro ao inserir:" +e);
+      }
+      return cadastroLeilaoResult;
   }
   
 }

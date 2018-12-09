@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+import Models.Leilaomodel;
 import Models.Usuario;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Lucas
  */
 public class controleLeilaoView extends javax.swing.JFrame {
@@ -133,7 +128,7 @@ private Usuario usuarioCon;
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
         // TODO add your handling code here:
           this.dispose();
-          new abriLeilaoView(usuarioCon).setVisible(true);
+          new cadLeilaoView(usuarioCon).setVisible(true);
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_abrirActionPerformed

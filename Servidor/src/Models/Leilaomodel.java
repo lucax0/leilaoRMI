@@ -1,27 +1,30 @@
 package Models;
 
-public class Leilaomodel {
+import java.io.Serializable;
+import java.sql.Date;
+
+public class Leilaomodel implements Serializable{
     private int id;
     private int criadoPor;
     private String nome;
     private String descricao;
     private float duracao;
-    private String hora;
+    private Date dataInicio;
     private int status;
-    private String data;
+    private Date dataFim;
 
     public Leilaomodel() {
     }
 
-    public Leilaomodel(int id, int criadoPor, String nome, String descricao, float duracao, String hora, int status, String data) {
+    public Leilaomodel(int id, int criadoPor, String nome, String descricao, float duracao, Date dataInicio, int status, Date dataFim) {
         this.id = id;
         this.criadoPor = criadoPor;
         this.nome = nome;
         this.descricao = descricao;
         this.duracao = duracao;
-        this.hora = hora;
+        this.dataInicio = dataInicio;
         this.status = status;
-        this.data = data;
+        this.dataFim = dataFim;
     }
 
     public int getCriadoPor() {
@@ -65,12 +68,12 @@ public class Leilaomodel {
         this.duracao = duracao;
     }
 
-    public String getHora() {
-        return hora;
+    public Date getdataInicio() {
+        return dataInicio;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setdataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
     public int getStatus() {
@@ -81,12 +84,12 @@ public class Leilaomodel {
         this.status = status;
     }
 
-    public String getData() {
-        return data;
+    public Date getdataFim() {
+        return dataFim;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setdataFim(Date dataFim) {
+        this.dataFim = dataFim;
     }
     
 }

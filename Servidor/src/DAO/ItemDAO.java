@@ -25,14 +25,13 @@ public class ItemDAO implements DAO<Item>{
 
     @Override
     public boolean inserir(Item obj)throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO item (idLeilao,nome, vendedor, cpf, descricao, valormin, senha, valorarremate, lance) values ( ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO item (idLeilao,nome, vendedor, cpf, descricao, valormin, senha, valorarremate, lance) values ( ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
-        
-        pst.setString(1, obj.getNome());
+        pst.setInt(1, obj.getIdLeilao());
         pst.setString(2, obj.getNome());
         pst.setString(3, obj.getVendedor());
         pst.setString(4, obj.getCpf());

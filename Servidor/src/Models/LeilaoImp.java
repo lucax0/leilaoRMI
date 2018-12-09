@@ -11,7 +11,6 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class LeilaoImp extends UnicastRemoteObject implements Leilao {
 
-    private boolean login;
     UsuarioDAO usuarioDAO = new UsuarioDAO();
     ItemDAO itemDAO = new ItemDAO();
     LeilaoDAO leilaoDAO = new LeilaoDAO();
@@ -55,21 +54,28 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     }
 
     @Override
-    public boolean inserirItem(String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate) throws RemoteException {
+    public boolean inserirItem(Item item) throws RemoteException {
         try {
-            Item item = new Item();
-            item.setNome(nome);
-            item.setVendedor(vendedor);
-            item.setCpf(CPF);
-            item.setDescricao(Descricao);
-            item.setValormin(valormin);
-            item.setSenha(senha);
-            item.setArremate(arremate);
             if (itemDAO.inserir(item)) {
                 return true;
             }
         } catch (Exception e) {
             System.out.println("Erro nao inserir:" + e);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean inserirLeilao(Leilaomodel leilaoModel) throws RemoteException {
+        try {
+            if(leilaoDAO.inserir(leilaoModel)){
+                System.out.println("Salvou Leilao");
+                return true;
+            }else{
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Erro:" + e);
         }
         return false;
     }

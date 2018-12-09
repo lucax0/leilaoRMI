@@ -27,19 +27,20 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     public boolean inserir(Leilaomodel obj)
             throws SQLException,
             ClassNotFoundException {
-        String sql = "INSERT INTO Leilao (nome, descricao) "
-                + "values (?, ?)";
+        String sql = "INSERT INTO Leilao (criadoPor, nome, descricao ,sstatus) values (?, ? ,?, ?)";
 
-        //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
         
-        pst.setString(1, obj.getNome());
-        pst.setString(2, obj.getDescricao());
+        pst.setInt(1, obj.getCriadoPor());
+        pst.setString(2, obj.getNome());
+        pst.setString(3, obj.getNome());
+        pst.setInt(4, 1);
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu
             Banco.desconectar();
+            System.out.println("Salvou Leilao Banco");
             return false;
         } else {
             Banco.desconectar();
