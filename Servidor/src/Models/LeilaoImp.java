@@ -82,7 +82,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     }
 
     @Override
-    public List<Leilaomodel> preencherLeilao(Leilaomodel leilaomodel) throws RemoteException {
+    public List<Leilaomodel> preencherLeilao() throws RemoteException {
         try {
             List<Leilaomodel> leiloes;
             leiloes = leilaoDAO.listar("");
