@@ -130,6 +130,10 @@ public class loginView extends javax.swing.JFrame {
        if ((txt_senha.getText().length() == 0) || (txt_usuario.getText().length() == 0)) {
             JOptionPane.showMessageDialog(rootPane, "Um ou mais campos vazios!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         } else {
+           if(txt_senha.getText().length() <= 6){
+                JOptionPane.showMessageDialog(rootPane, "A senha precisa de pelo menos 6 caracteres!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
+                txt_senha.requestFocus();
+            }else{
         Usuario resultLogin = server.login(txt_usuario.getText(), txt_senha.getText(), server.conectarServidor());
         if(resultLogin != null){
             System.out.println(resultLogin.getTipo());
@@ -143,6 +147,7 @@ public class loginView extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "Dados invalidos!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         }
+           }
        }
     }//GEN-LAST:event_btn_entrarActionPerformed
 
