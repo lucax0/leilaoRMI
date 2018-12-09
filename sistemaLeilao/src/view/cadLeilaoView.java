@@ -63,8 +63,10 @@ public class cadLeilaoView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel3.setText("Seu ID:");
 
+        txt_id.setEditable(false);
         txt_id.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         txt_id.setToolTipText("");
+        txt_id.setFocusable(false);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel4.setText("Duracao:");

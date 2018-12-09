@@ -87,7 +87,6 @@ import javax.swing.DefaultComboBoxModel;
         });
 
         lst_leiloes.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        lst_leiloes.setModel(Leilaomodel);
         jScrollPane1.setViewportView(lst_leiloes);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
