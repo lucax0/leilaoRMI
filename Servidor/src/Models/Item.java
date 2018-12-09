@@ -14,11 +14,36 @@ public class Item {
     private String cpf;
     private String vendedor;
     private String descricao;
+    private int idLeilao;
     private int id;
     private float valormin;
     private float arremate;
     private String senha;
 
+    public Item() {
+    }
+
+    public Item(String nome, String cpf, String vendedor, String descricao, int idLeilao, int id, float valormin, float arremate, String senha) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.vendedor = vendedor;
+        this.descricao = descricao;
+        this.idLeilao = idLeilao;
+        this.id = id;
+        this.valormin = valormin;
+        this.arremate = arremate;
+        this.senha = senha;
+    }
+    
+    public int getIdLeilao() {
+        return idLeilao;
+    }
+
+    public void setIdLeilao(int idLeilao) {
+        this.idLeilao = idLeilao;
+    }
+
+    
     public String getNome() {
         return nome;
     }
