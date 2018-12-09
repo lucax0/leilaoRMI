@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Models;
 
-/**
- *
- * @author Victor
- */
 public class Leilaomodel {
     private int id;
     private String nome;
@@ -19,6 +10,20 @@ public class Leilaomodel {
     private int status;
     private String data;
 
+    public Leilaomodel() {
+    }
+
+    public Leilaomodel(int id, String nome, float lance, String descricao, float duracao, String hora, int status, String data) {
+        this.id = id;
+        this.nome = nome;
+        this.lance = lance;
+        this.descricao = descricao;
+        this.duracao = duracao;
+        this.hora = hora;
+        this.status = status;
+        this.data = data;
+    }
+    
     public int getId() {
         return id;
     }
