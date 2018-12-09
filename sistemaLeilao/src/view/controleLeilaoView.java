@@ -33,9 +33,8 @@ private Usuario usuarioCon;
         btn_novo = new javax.swing.JButton();
         btn_abrir = new javax.swing.JButton();
         btn_encerrar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         btn_sair = new javax.swing.JButton();
+        cmb_leilao = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cliente Leilão");
@@ -71,14 +70,6 @@ private Usuario usuarioCon;
             }
         });
 
-        jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Leilao 1", "Leilao 2", "Leilao 3", "Leilao 4", "Leilao 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
         btn_sair.setBackground(new java.awt.Color(255, 51, 51));
         btn_sair.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_sair.setText("SAIR");
@@ -99,13 +90,13 @@ private Usuario usuarioCon;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_novo)
                         .addGap(48, 48, 48)
                         .addComponent(btn_abrir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(btn_encerrar)))
+                        .addComponent(btn_encerrar))
+                    .addComponent(cmb_leilao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -120,9 +111,9 @@ private Usuario usuarioCon;
                     .addComponent(btn_encerrar)
                     .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_abrir))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(cmb_leilao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
                 .addComponent(btn_sair, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -201,8 +192,7 @@ private Usuario usuarioCon;
     private javax.swing.JButton btn_encerrar;
     private javax.swing.JButton btn_novo;
     private javax.swing.JButton btn_sair;
+    private javax.swing.JComboBox<String> cmb_leilao;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
