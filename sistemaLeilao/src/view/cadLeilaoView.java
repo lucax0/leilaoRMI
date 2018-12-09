@@ -87,6 +87,7 @@ public class cadLeilaoView extends javax.swing.JFrame {
 
         btn_salvar.setBackground(new java.awt.Color(51, 255, 51));
         btn_salvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Cute-Ball-Go-icon.png"))); // NOI18N
         btn_salvar.setText("SALVAR LEILAO");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

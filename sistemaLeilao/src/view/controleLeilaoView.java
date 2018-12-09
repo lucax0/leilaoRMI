@@ -68,6 +68,7 @@ sistemaLeilao server = new sistemaLeilao();
 
         btn_novo.setBackground(new java.awt.Color(102, 255, 102));
         btn_novo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Cute-Ball-Go-icon.png"))); // NOI18N
         btn_novo.setText("NOVO LEILAO");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,9 +125,9 @@ sistemaLeilao server = new sistemaLeilao();
                     .addComponent(cmb_leilao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_novo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addGap(40, 40, 40)
                         .addComponent(btn_abrir)
-                        .addGap(57, 57, 57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addComponent(btn_encerrar)))
                 .addContainerGap())
         );
