@@ -149,9 +149,9 @@ public class cadastroView extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(btn_cancelar)
-                                .addGap(42, 42, 42)
+                                .addGap(54, 54, 54)
                                 .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cb_leiloeiro))))
@@ -182,8 +182,9 @@ public class cadastroView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_salvar, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                    .addComponent(btn_limpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -202,6 +203,10 @@ public class cadastroView extends javax.swing.JFrame {
         if ((txt_cpf.getText().length() == 0) || (txt_email.getText().length() == 0) || (txt_nome.getText().length() == 0) || (txt_senha.getText().length() == 0)) {
             JOptionPane.showMessageDialog(rootPane, "Um ou mais campos vazios!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         } else {
+            if(txt_senha.getText().length() <= 6){
+                JOptionPane.showMessageDialog(rootPane, "A senha precisa de pelo menos 6 caracteres!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
+                txt_senha.requestFocus();
+            }else{
             try {             
                 if(cb_leiloeiro.isSelected() == true){
                     tipo = 2;
@@ -223,6 +228,7 @@ public class cadastroView extends javax.swing.JFrame {
                 System.out.println(e);
                 JOptionPane.showMessageDialog(rootPane, "ERRO AO CADASTRAR", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
             }
+            }
         }
     }//GEN-LAST:event_btn_salvarActionPerformed
 
@@ -238,7 +244,7 @@ public class cadastroView extends javax.swing.JFrame {
     private void txt_senhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaKeyTyped
         // TODO add your handling code here:
         char vchar = evt.getKeyChar();
-        if ((vchar == KeyEvent.VK_BACK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_senha.getText().length() >= 10) {
+        if ((vchar == KeyEvent.VK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_senha.getText().length() >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_senhaKeyTyped
@@ -255,7 +261,7 @@ public class cadastroView extends javax.swing.JFrame {
     private void txt_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyTyped
         // TODO add your handling code here:
         char vchar = evt.getKeyChar();
-        if ((vchar == KeyEvent.VK_BACK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_email.getText().length() >= 60) {
+        if ((vchar == KeyEvent.VK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_email.getText().length() >= 60) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_emailKeyTyped
