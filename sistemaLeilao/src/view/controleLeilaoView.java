@@ -1,7 +1,9 @@
 package view;
 
+import Controllers.sistemaLeilao;
 import Models.Leilaomodel;
 import Models.Usuario;
+import java.util.Iterator;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -11,6 +13,7 @@ import javax.swing.JOptionPane;
 public class controleLeilaoView extends javax.swing.JFrame {
 private int resp;
 private Usuario usuarioCon;
+sistemaLeilao server = new sistemaLeilao();
     /**
      * Creates new form controleLeilaoView
      * @param resultLogin
@@ -19,12 +22,28 @@ private Usuario usuarioCon;
         initComponents();
         getContentPane().setBackground(new java.awt.Color(102,204,255));
         this.usuarioCon = resultLogin;
+        sistemaLeilao server = new sistemaLeilao();
+        preencherLeilao();
     }
+    
 
     private controleLeilaoView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+    private void preencherLeilao() {
+        java.util.List<Leilaomodel> leiloes;
+        try {
+            leiloes = server.preencherleilao(server.conectarServidor());
+            Iterator it = leiloes.iterator();
+            while (it.hasNext()) {
+                Object obj = it.next();
+                cmb_leilao.addItem(obj.toString());
+            }
+ 
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane,"Erro:" + ex.getMessage());
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
