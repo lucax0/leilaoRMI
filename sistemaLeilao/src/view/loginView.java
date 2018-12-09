@@ -125,10 +125,10 @@ public class loginView extends javax.swing.JFrame {
             System.out.println(resultLogin.getTipo());
             if(resultLogin.getTipo() == 1){
                 this.dispose();
-                new controleLeilaoParticipanteView().setVisible(true);                
+                new controleLeilaoParticipanteView(resultLogin).setVisible(true);                
             }else{
                 this.dispose();
-                new controleLeilaoView().setVisible(true); 
+                new controleLeilaoView(resultLogin).setVisible(true); 
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Dados invalidos!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);

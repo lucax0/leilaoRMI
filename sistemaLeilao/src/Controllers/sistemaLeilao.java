@@ -1,4 +1,5 @@
 package Controllers;
+import Models.Item;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -46,15 +47,15 @@ public class sistemaLeilao{
       return cadastroResult;
   }
   
-  public boolean inserirItem(String nome, String vendedor, String CPF, String Descricao, float valormin, String senha, float arremate, Leilao server){
-      boolean cadastroResult = false;
+  public boolean inserirItem(Item item ,Leilao server){
+      boolean cadastroItemResult = false;
       try {
-          cadastroResult = server.inserirItem(nome, vendedor , CPF, Descricao, valormin, senha, arremate);
-          return cadastroResult;
+          cadastroItemResult = server.inserirItem(item);
+          return cadastroItemResult;
       } catch (Exception e) {
           System.out.println("Erro ao inserir:" +e);
       }
-      return cadastroResult;
+      return cadastroItemResult;
   }
   
 }

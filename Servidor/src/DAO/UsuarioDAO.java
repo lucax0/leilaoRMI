@@ -117,8 +117,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     @Override
     public Usuario pesquisar(Usuario obj) throws SQLException, ClassNotFoundException {
         Usuario usuario = new Usuario();
-        String sql = "SELECT * FROM Usuario "
-                + "WHERE cpf = ?";
+        String sql = "SELECT * FROM Usuario WHERE cpf = ?";
 
         //abre o banco
         Banco.conectar();
@@ -144,7 +143,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     @Override
     public List<Usuario> listar(String criterio)throws SQLException, ClassNotFoundException {
         
-        String sql = "SELECT * FROM Usuario ";
+        String sql = "SELECT * FROM Usuario";
         
         if (criterio.length() != 0) {
             sql += "WHERE " + criterio;

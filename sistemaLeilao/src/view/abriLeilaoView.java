@@ -6,6 +6,8 @@
 package view;
 
 import Controllers.sistemaLeilao;
+import Models.Item;
+import Models.Usuario;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -15,13 +17,17 @@ import javax.swing.JOptionPane;
  */
 public class abriLeilaoView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form abriLeilaoView
-     */
-    public abriLeilaoView() {
+    private Usuario usuarioCon;
+    
+    public abriLeilaoView(Usuario resultLogin) {
         initComponents();
+        this.usuarioCon = resultLogin;
     }
     DefaultListModel model = new DefaultListModel();
+
+    private abriLeilaoView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public void limparcampos(){
         txt_descricao.setText("");
         txt_nomeprod.setText("");
@@ -201,8 +207,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
 
     private void btn_voltartelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltartelaActionPerformed
         // TODO add your handling code here:
-        
-        new controleLeilaoView().setVisible(true);
+        new controleLeilaoView(usuarioCon).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltartelaActionPerformed
 
@@ -216,7 +221,16 @@ public class abriLeilaoView extends javax.swing.JFrame {
        }
        else{
            try {
-                if (server.inserirItem(txt_nomeprod.getText(), txt_descricao.getText(), txt_valormin.getText(), txt_senhaprod.getText(),10, txt_arremate.getText(), 10, server.conectarServidor())) {
+               //Montar a model para salvar
+               Item item = new Item();
+                item.setNome(txt_nomeprod.getText());
+                item.setVendedor(usuarioCon.getNome());
+                item.setCpf(usuarioCon.getCpf());
+                item.setDescricao(txt_descricao.getText());
+                item.setValormin(10);
+                item.setSenha(txt_senhaprod.getText());
+                item.setArremate(20);
+                if (server.inserirItem(item, server.conectarServidor())) {
                     JOptionPane.showMessageDialog(rootPane, "Cadastro com sucesso!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
                     limparcampos();
                     new loginView().setVisible(true);

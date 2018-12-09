@@ -5,6 +5,7 @@
  */
 package view;
 
+import Models.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,10 @@ private int resp;
      */
     public controleLeilaoParticipanteView() {
         initComponents();
+    }
+
+    controleLeilaoParticipanteView(Usuario resultLogin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

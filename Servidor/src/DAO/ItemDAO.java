@@ -24,25 +24,21 @@ public class ItemDAO implements DAO<Item>{
     private Item itemModel;
 
     @Override
-    public boolean inserir(Item obj)
-            throws SQLException,
-            ClassNotFoundException {
-        String sql = "INSERT INTO Item (id, nome, vendedor, cpf, descricao, valormin, senha, valorarremate) "
-                + "values (?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean inserir(Item obj)throws SQLException, ClassNotFoundException {
+        String sql = "INSERT INTO item (nome, vendedor, cpf, descricao, valormin, senha, valorarremate) values ( ?, ?, ?, ?, ?, ?, ?)";
 
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
         
-        pst.setInt(1, obj.getId());
-        pst.setString(2, obj.getNome());
-        pst.setString(3, obj.getVendedor());
-        pst.setString(4, obj.getCpf());
-        pst.setString(5, obj.getDescricao());
-        pst.setFloat(6, obj.getValormin());
-        pst.setString(7, obj.getSenha());
-        pst.setFloat(8, obj.getArremate());
+        pst.setString(1, obj.getNome());
+        pst.setString(2, obj.getVendedor());
+        pst.setString(3, obj.getCpf());
+        pst.setString(4, obj.getDescricao());
+        pst.setFloat(5, obj.getValormin());
+        pst.setString(6, obj.getSenha());
+        pst.setFloat(7, obj.getArremate());
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu
             Banco.desconectar();
