@@ -13,6 +13,13 @@ public class Leilaomodel implements Serializable{
     private int status;
     private Date dataFim;
 
+    @Override
+    public String toString() {
+        return "Leilaomodel{" + "id=" + id + ", nome=" + nome + '}';
+    }
+
+    
+    
     public Leilaomodel() {
     }
 

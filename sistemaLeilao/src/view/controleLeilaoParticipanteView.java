@@ -38,8 +38,8 @@ import javax.swing.DefaultComboBoxModel;
             leiloes = server.preencherleilao(server.conectarServidor());
             Iterator it = leiloes.iterator();
             while (it.hasNext()) {
-                Object leilao = it.next();
-                
+                Object obj = it.next();
+                cmb_leilao.addItem(obj.toString());
             }
  
         } catch (Exception ex) {
@@ -57,12 +57,11 @@ import javax.swing.DefaultComboBoxModel;
 
         panel1 = new java.awt.Panel();
         btn_parti = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lst_leiloes = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         btn_vizu = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        cmb_leilao = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -85,9 +84,6 @@ import javax.swing.DefaultComboBoxModel;
                 btn_partiActionPerformed(evt);
             }
         });
-
-        lst_leiloes.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        jScrollPane1.setViewportView(lst_leiloes);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -123,7 +119,7 @@ import javax.swing.DefaultComboBoxModel;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(cmb_leilao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,9 +141,9 @@ import javax.swing.DefaultComboBoxModel;
                     .addComponent(btn_vizu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmb_leilao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
                 .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 20, Short.MAX_VALUE))
         );
@@ -214,10 +210,9 @@ import javax.swing.DefaultComboBoxModel;
     private javax.swing.JButton btn_parti;
     private javax.swing.JButton btn_sair;
     private javax.swing.JButton btn_vizu;
+    private javax.swing.JComboBox<String> cmb_leilao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> lst_leiloes;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 }
