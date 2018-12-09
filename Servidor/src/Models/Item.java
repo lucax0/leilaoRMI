@@ -8,6 +8,7 @@ public class Item {
     private int idLeilao;
     private int id;
     private float valormin;
+    private float lance;
     private float arremate;
     private String senha;
 
@@ -97,6 +98,14 @@ public class Item {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public float getLance() {
+        return lance;
+    }
+
+    public void setLance(float lance) {
+        this.lance = lance;
     }
     
 }

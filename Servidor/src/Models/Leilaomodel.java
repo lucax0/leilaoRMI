@@ -12,7 +12,7 @@ package Models;
 public class Leilaomodel {
     private int id;
     private String nome;
-    private float lance;
+
     private String descricao;
     private float duracao;
     private String hora;
@@ -33,14 +33,6 @@ public class Leilaomodel {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public float getLance() {
-        return lance;
-    }
-
-    public void setLance(float lance) {
-        this.lance = lance;
     }
 
     public String getDescricao() {

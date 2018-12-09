@@ -17,6 +17,7 @@ public class Item {
     private int id;
     private float valormin;
     private float arremate;
+    private float lance;
     private String senha;
 
     public String getNome() {
@@ -81,6 +82,14 @@ public class Item {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public float getLance() {
+        return lance;
+    }
+
+    public void setLance(float lance) {
+        this.lance = lance;
     }
     
 }

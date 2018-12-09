@@ -3,7 +3,7 @@ package Models;
 public class Leilaomodel {
     private int id;
     private String nome;
-    private float lance;
+
     private String descricao;
     private float duracao;
     private String hora;
@@ -13,10 +13,9 @@ public class Leilaomodel {
     public Leilaomodel() {
     }
 
-    public Leilaomodel(int id, String nome, float lance, String descricao, float duracao, String hora, int status, String data) {
+    public Leilaomodel(int id, String nome, String descricao, float duracao, String hora, int status, String data) {
         this.id = id;
         this.nome = nome;
-        this.lance = lance;
         this.descricao = descricao;
         this.duracao = duracao;
         this.hora = hora;
@@ -38,14 +37,6 @@ public class Leilaomodel {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public float getLance() {
-        return lance;
-    }
-
-    public void setLance(float lance) {
-        this.lance = lance;
     }
 
     public String getDescricao() {
