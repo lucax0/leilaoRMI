@@ -28,6 +28,7 @@ import javax.swing.DefaultComboBoxModel;
      */
     public controleLeilaoParticipanteView() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(102,204,255));
     }
 
         
@@ -88,6 +89,7 @@ import javax.swing.DefaultComboBoxModel;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_parti.setBackground(new java.awt.Color(102, 255, 102));
+        btn_parti.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_parti.setText("PARTICIPAR");
         btn_parti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ import javax.swing.DefaultComboBoxModel;
             }
         });
 
+        jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Leilao 1", "Leilao 2", "Leilao 3", "Leilao 4", "Leilao 5" };
             public int getSize() { return strings.length; }
@@ -102,11 +105,12 @@ import javax.swing.DefaultComboBoxModel;
         });
         jScrollPane1.setViewportView(jList1);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONTROLE LEILAO PART.");
 
-        btn_vizu.setBackground(new java.awt.Color(51, 51, 255));
+        btn_vizu.setBackground(new java.awt.Color(51, 102, 255));
+        btn_vizu.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_vizu.setText("EDITAR PERFIL");
         btn_vizu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +118,8 @@ import javax.swing.DefaultComboBoxModel;
             }
         });
 
+        btn_sair.setBackground(new java.awt.Color(255, 51, 51));
+        btn_sair.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_sair.setText("SAIR");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +127,7 @@ import javax.swing.DefaultComboBoxModel;
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Leiloes ativos:");
 
@@ -136,11 +142,11 @@ import javax.swing.DefaultComboBoxModel;
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_parti)
                                 .addGap(27, 27, 27)
                                 .addComponent(btn_vizu))
-                            .addComponent(btn_sair)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -158,8 +164,8 @@ import javax.swing.DefaultComboBoxModel;
                 .addGap(1, 1, 1)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_sair)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();

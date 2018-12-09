@@ -20,7 +20,8 @@ public class loginView extends javax.swing.JFrame {
      */
 
     public loginView() {
-        initComponents();        
+        initComponents();  
+        getContentPane().setBackground(new java.awt.Color(102,204,255));
     }
 
     @SuppressWarnings("unchecked")
@@ -39,21 +40,25 @@ public class loginView extends javax.swing.JFrame {
         setTitle("LOGIN");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AREA DE LOGIN");
 
+        txt_usuario.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_usuarioKeyTyped(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel2.setText("Email:");
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel3.setText("Senha:");
 
         btn_entrar.setBackground(new java.awt.Color(51, 255, 51));
+        btn_entrar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_entrar.setText("ENTRAR");
         btn_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +66,8 @@ public class loginView extends javax.swing.JFrame {
             }
         });
 
-        btn_cadastrar.setBackground(new java.awt.Color(0, 0, 255));
+        btn_cadastrar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_cadastrar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_cadastrar.setText("CADASTRAR");
         btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +75,7 @@ public class loginView extends javax.swing.JFrame {
             }
         });
 
+        txt_senha.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         txt_senha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_senhaKeyTyped(evt);
@@ -84,9 +91,9 @@ public class loginView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_cadastrar)
-                        .addGap(96, 96, 96)
-                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -108,9 +115,9 @@ public class loginView extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(btn_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

@@ -16,6 +16,7 @@ public class controleLance extends javax.swing.JFrame {
      */
     public controleLance() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(102,204,255));
     }
     
     @SuppressWarnings("unchecked")
@@ -32,6 +33,7 @@ public class controleLance extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "LANCE 1", "LANCE 2", "LANCE 3", "LANCE 4", "LANCE 5" };
             public int getSize() { return strings.length; }
@@ -39,7 +41,8 @@ public class controleLance extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        btn_vizu.setBackground(new java.awt.Color(102, 255, 102));
+        btn_vizu.setBackground(new java.awt.Color(51, 102, 255));
+        btn_vizu.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_vizu.setText("VIZUALIZAR");
         btn_vizu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +51,7 @@ public class controleLance extends javax.swing.JFrame {
         });
 
         btn_negar.setBackground(new java.awt.Color(255, 0, 0));
+        btn_negar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_negar.setText("NEGAR");
         btn_negar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,11 +59,12 @@ public class controleLance extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONTROLE LANCE");
 
         btn_aprovar.setBackground(new java.awt.Color(102, 255, 102));
+        btn_aprovar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_aprovar.setText("APROVAR");
         btn_aprovar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +72,8 @@ public class controleLance extends javax.swing.JFrame {
             }
         });
 
+        btn_voltar.setBackground(new java.awt.Color(255, 51, 51));
+        btn_voltar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_voltar.setText("VOLTAR");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +99,7 @@ public class controleLance extends javax.swing.JFrame {
                                 .addComponent(btn_negar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_vizu))
-                            .addComponent(btn_voltar))
+                            .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -111,8 +118,8 @@ public class controleLance extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_voltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();

@@ -18,6 +18,7 @@ public class cadLeilaoView extends javax.swing.JFrame {
      */
     public cadLeilaoView(Usuario userCon) {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(102,204,255));
         txt_id.setText(Integer.toString(userCon.getId()));
         userConect = userCon;
     }
@@ -47,27 +48,38 @@ public class cadLeilaoView extends javax.swing.JFrame {
         btn_salvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 204, 255));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTRO LEILAO");
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel2.setText("Nome do Leilao(Ex:Leilao de Eletronicos):");
 
+        txt_nomeL.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         txt_nomeL.setToolTipText("");
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel3.setText("Seu ID:");
 
+        txt_id.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         txt_id.setToolTipText("");
 
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel4.setText("Duracao:");
 
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel5.setText("Data INICIO:");
 
+        txt_nomeL2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         txt_nomeL2.setToolTipText("");
 
+        jComboBox1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btn_salvar.setBackground(new java.awt.Color(51, 255, 51));
+        btn_salvar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         btn_salvar.setText("SALVAR LEILAO");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +95,6 @@ public class cadLeilaoView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_salvar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
@@ -100,8 +111,9 @@ public class cadLeilaoView extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txt_nomeL, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                            .addComponent(txt_nomeL, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +133,9 @@ public class cadLeilaoView extends javax.swing.JFrame {
                     .addComponent(txt_nomeL2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(btn_salvar)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
