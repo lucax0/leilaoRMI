@@ -47,6 +47,7 @@ public class vizualiarLeilaoView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cliente Leilão");
         setBackground(new java.awt.Color(102, 204, 255));
 
         jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N

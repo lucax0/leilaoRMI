@@ -48,6 +48,7 @@ public class cadLeilaoView extends javax.swing.JFrame {
         btn_salvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cliente Leilão");
         setBackground(new java.awt.Color(102, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N

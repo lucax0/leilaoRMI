@@ -37,7 +37,7 @@ public class loginView extends javax.swing.JFrame {
         txt_senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("LOGIN");
+        setTitle("Cliente Leilão");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N

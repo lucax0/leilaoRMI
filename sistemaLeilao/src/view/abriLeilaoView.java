@@ -60,6 +60,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
         txt_arremate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cliente Leilão");
         setBackground(new java.awt.Color(153, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N

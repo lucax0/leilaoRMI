@@ -32,6 +32,7 @@ public class controleLance extends javax.swing.JFrame {
         btn_voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cliente Leilão");
 
         jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {

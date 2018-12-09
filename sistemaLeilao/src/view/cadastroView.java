@@ -44,6 +44,7 @@ public class cadastroView extends javax.swing.JFrame {
         cb_leiloeiro = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cliente Leilão");
         setBackground(new java.awt.Color(102, 204, 255));
         setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
 
