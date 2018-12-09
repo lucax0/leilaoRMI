@@ -144,6 +144,9 @@ public class cadLeilaoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        if ((txt_id.getText().length() == 0) || (txt_nomeL.getText().length() == 0) || (txt_nomeL2.getText().length() == 0)) {
+            JOptionPane.showMessageDialog(rootPane, "Um ou mais campos vazios!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
+        } else {
         int id = userConect.getId();
         Leilaomodel leilaoModel = new Leilaomodel();
         leilaoModel.setCriadoPor(id);
@@ -152,6 +155,7 @@ public class cadLeilaoView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Cadastro com sucesso!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
             new abriLeilaoView(leilaoModel).setVisible(true);
             this.dispose();
+        }
         }
     }//GEN-LAST:event_btn_salvarActionPerformed
     /**
