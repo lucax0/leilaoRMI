@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import Controllers.sistemaLeilao;
@@ -11,6 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import Models.Leilaomodel;
 import java.sql.SQLException;
+import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -29,32 +25,25 @@ import javax.swing.DefaultComboBoxModel;
     public controleLeilaoParticipanteView() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(102,204,255));
+        preencherLeilao();
     }
-
-        
     
     controleLeilaoParticipanteView(Usuario resultLogin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void preencheCombo() {
+    private void preencherLeilao() {
         java.util.List<Leilaomodel> leiloes;
         try {
-            server.preencherleilao(leilao, server.conectarServidor());
-            //preenche a lista
-            leiloes = server.preencherleilao("");
-            //preencher o modelo a partir da lista
-            model = new DefaultListModel<>
-                    (leiloes.toArray(new Leilaomodel[0]));
-            //jogar o model na comboBox
-            jList1.setModel(model);
-                    
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, 
-                    "SQL:" + ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(rootPane, 
-                    "Class:" + ex.getMessage());
+            leiloes = server.preencherleilao(server.conectarServidor());
+            Iterator it = leiloes.iterator();
+            while (it.hasNext()) {
+                Object leilao = it.next();
+                
+            }
+ 
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane,"Erro:" + ex.getMessage());
         }
     }
     /**
@@ -69,7 +58,7 @@ import javax.swing.DefaultComboBoxModel;
         panel1 = new java.awt.Panel();
         btn_parti = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lst_leiloes = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         btn_vizu = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
@@ -97,13 +86,9 @@ import javax.swing.DefaultComboBoxModel;
             }
         });
 
-        jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Leilao 1", "Leilao 2", "Leilao 3", "Leilao 4", "Leilao 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        lst_leiloes.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        lst_leiloes.setModel(Leilaomodel);
+        jScrollPane1.setViewportView(lst_leiloes);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -232,8 +217,8 @@ import javax.swing.DefaultComboBoxModel;
     private javax.swing.JButton btn_vizu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lst_leiloes;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 }

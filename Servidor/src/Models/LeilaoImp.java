@@ -5,6 +5,7 @@ import DAO.ItemDAO;
 import DAO.UsuarioDAO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 /**
  * @author lucas
@@ -78,5 +79,17 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             System.out.println("Erro:" + e);
         }
         return false;
+    }
+
+    @Override
+    public List<Leilaomodel> preencherLeilao(Leilaomodel leilaomodel) throws RemoteException {
+        try {
+            List<Leilaomodel> leiloes;
+            leiloes = leilaoDAO.listar("");
+            return leiloes;
+        } catch (Exception e) { 
+            System.out.println("Erro na busca de ");
+        }
+        return null;
     }
 }

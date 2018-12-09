@@ -126,12 +126,11 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     public List<Leilaomodel> listar(String criterio) 
             throws SQLException, 
             ClassNotFoundException {
-        String sql = "SELECT * FROM Leilao ";
+        String sql = "SELECT * FROM Leilao";
 
         if (criterio.length() != 0) {
             sql += "WHERE " + criterio;
         }
-
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
@@ -141,6 +140,7 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
         while (rs.next()) { //percorre todos os registros
             leilaomodel = new Leilaomodel();
             leilaomodel.setId(rs.getInt("id"));
+            leilaomodel.setStatus(rs.getInt("sstatus"));
             leilaomodel.setDescricao(rs.getString("descricao"));
             leiloes.add(leilaomodel);
         } 
@@ -153,8 +153,7 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     public Leilaomodel proximo() 
             throws SQLException, ClassNotFoundException {
 
-        String sql = "SELECT IFNULL(max(id), 0) + 1 codigo "
-                + "FROM Leilao";
+        String sql = "SELECT IFNULL(max(id), 0) + 1 codigo FROM Leilao";
 
         //abre o banco
         Banco.conectar();

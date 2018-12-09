@@ -9,6 +9,8 @@ import java.rmi.registry.LocateRegistry;
 import Models.Leilao;
 import Models.Leilaomodel;
 import Models.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * @author Lucas
  */
@@ -68,15 +70,15 @@ public class sistemaLeilao{
       }
       return cadastroLeilaoResult;
   }
-    public boolean preencherleilao(Leilaomodel leilaoModel ,Leilao server){
-      boolean preencherleilao = false;
-      try {
-          preencherleilao = server.preencherLeilao(leilaoModel);
-          return preencherleilao;
+    public List<Leilaomodel> preencherleilao(Leilao server){
+     List<Leilaomodel> leiloes;
+        try {
+          leiloes = server.preencherLeilao();
+          return leiloes;
       } catch (Exception e) {
           System.out.println("Erro ao preencher:" +e);
       }
-      return preencherleilao;
+      return null;
   }
   
 }
