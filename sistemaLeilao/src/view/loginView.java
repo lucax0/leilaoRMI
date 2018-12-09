@@ -149,14 +149,14 @@ public class loginView extends javax.swing.JFrame {
 
     private void txt_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyTyped
         char c=evt.getKeyChar();
-    if(txt_usuario.getText().length() >= 30)
+    if( (c == KeyEvent.VK_SPACE) || (txt_usuario.getText().length() >= 30))
         evt.consume();
     }//GEN-LAST:event_txt_usuarioKeyTyped
 
     private void txt_senhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaKeyTyped
         // TODO add your handling code here:
         char vchar = evt.getKeyChar();
-        if ((vchar == KeyEvent.VK_BACK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_senha.getText().length() >= 10) {
+        if ((vchar == KeyEvent.VK_SPACE) || (vchar == KeyEvent.VK_DELETE) || txt_senha.getText().length() >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_senhaKeyTyped
