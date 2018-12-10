@@ -186,10 +186,10 @@ sistemaLeilao server = new sistemaLeilao();
         
         resp = JOptionPane.showConfirmDialog(this, "Deseja realmente sair ?", "Saindo do programa!!!", JOptionPane.YES_NO_OPTION);
         if (resp == 1){
+            
+        }else{
             new controleLeilaoView(usuarioCon).setVisible(true);
             this.dispose();
-        }else{
-            
         }
             
         

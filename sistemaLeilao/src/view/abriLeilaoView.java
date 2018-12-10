@@ -46,7 +46,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
         txt_descricao = new javax.swing.JTextField();
         btn_addprod = new javax.swing.JButton();
         btn_voltartela = new javax.swing.JButton();
-        btn_comecar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_valormin = new javax.swing.JTextField();
@@ -107,11 +106,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
             }
         });
 
-        btn_comecar.setBackground(new java.awt.Color(51, 255, 51));
-        btn_comecar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btn_comecar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Cute-Ball-Go-icon.png"))); // NOI18N
-        btn_comecar.setText("COMEÇAR");
-
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel6.setText("Valor minimo:");
 
@@ -153,9 +147,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_voltartela)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_comecar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -199,9 +191,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_comecar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_voltartela, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(btn_voltartela, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -213,16 +203,9 @@ public class abriLeilaoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nomeprodActionPerformed
 
-    private void btn_voltartelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltartelaActionPerformed
-        // TODO add your handling code here:
-//        Usuario usuarioCon 
-        new loginView().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_voltartelaActionPerformed
-
     private void btn_addprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addprodActionPerformed
         // TODO add your handling code here:
-       if ((txt_descricao.getText().length() == 0) || (txt_nomeprod.getText().length() == 0) || (txt_senhaprod.getText().length() == 0) || (txt_valormin.getText().length() == 0) || (txt_arremate.getText().length() == 0)){
+       if ((txt_descricao.getText().length() == 0) || (txt_nomeprod.getText().length() == 0) || (txt_senhaprod.getText().length() == 0) || (txt_valormin.getText().length() == 0)){
            JOptionPane.showMessageDialog(rootPane,
                     "Um ou mais campos vazios!!!",
                     "Mensagem ao Usuário",
@@ -258,6 +241,13 @@ public class abriLeilaoView extends javax.swing.JFrame {
        }
        
     }//GEN-LAST:event_btn_addprodActionPerformed
+
+    private void btn_voltartelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltartelaActionPerformed
+        // TODO add your handling code here:
+        //        Usuario usuarioCon
+        new loginView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_voltartelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,7 +286,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addprod;
-    private javax.swing.JButton btn_comecar;
     private javax.swing.JButton btn_voltartela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

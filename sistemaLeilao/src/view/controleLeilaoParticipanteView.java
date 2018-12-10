@@ -18,6 +18,7 @@ import javax.swing.DefaultComboBoxModel;
     private int resp;
     sistemaLeilao server = new sistemaLeilao();
     private Leilaomodel leilao;
+    private Usuario usuarioCon;
     private DefaultListModel<Leilaomodel> model;
     /**
      * Creates new form controleLeilaoParticipanteView
@@ -174,7 +175,7 @@ import javax.swing.DefaultComboBoxModel;
         if (resp == 1){
             
         }else{
-         
+         new controleLeilaoView(usuarioCon).setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_btn_sairActionPerformed
