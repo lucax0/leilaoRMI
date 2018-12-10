@@ -22,7 +22,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
 
     @Override
     public Usuario login(String user, String senha) throws RemoteException {
-            Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario();
         try {
             usuario = usuarioDAO.login(user, senha);
             if (usuario != null) {
@@ -69,10 +69,10 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     @Override
     public boolean inserirLeilao(Leilaomodel leilaoModel) throws RemoteException {
         try {
-            if(leilaoDAO.inserir(leilaoModel)){
+            if (leilaoDAO.inserir(leilaoModel)) {
                 System.out.println("Salvou Leilao");
                 return true;
-            }else{
+            } else {
                 return false;
             }
         } catch (Exception e) {
@@ -87,7 +87,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             List<Leilaomodel> leiloes;
             leiloes = leilaoDAO.listar(criterio);
             return leiloes;
-        } catch (Exception e) { 
+        } catch (Exception e) {
             System.out.println("Erro na busca de ");
         }
         return null;
@@ -103,5 +103,17 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             System.out.println("Erro na busca do ultimo leilao(IMP)");
         }
         return null;
+    }
+
+    @Override
+    public boolean alterarStatusById(String criterio) throws RemoteException {
+        boolean result = false;
+        try {
+            result = leilaoDAO.alterarStatusById(criterio);
+            return result;
+        } catch (Exception e) {
+            System.out.println("Erro: " + e);
+        }
+        return result;
     }
 }

@@ -91,4 +91,14 @@ public class sistemaLeilao{
         return null;
     }
   
+    public boolean alterarStatuById(String criterio , Leilao server){
+        boolean result = false;
+        try {
+            result = server.alterarStatusById(criterio);
+            return result;
+        } catch (Exception e) {
+            System.out.println("Erro:" + e);
+        }
+        return result;
+    }
 }

@@ -52,12 +52,11 @@ public class ItemDAO implements DAO<Item>{
     }
 
     @Override
-    public boolean alterar(Item obj)
-            throws SQLException,
+    public boolean alterar(Item obj) throws SQLException,
             ClassNotFoundException {
 
         String sql = "UPDATE Leilao SET nome = ? "
-                + "WHERE id = ?";
+                + "WHERE " ;
 
         //abre o banco
         Banco.conectar();

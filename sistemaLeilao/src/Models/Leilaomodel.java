@@ -16,7 +16,7 @@ public class Leilaomodel implements Serializable {
 
     @Override
     public String toString() {
-        return "Id=" + id + ", Nome=" + nome;
+        return "id = " + id + ",Nome=" + nome;
     }
 
     public Leilaomodel() {

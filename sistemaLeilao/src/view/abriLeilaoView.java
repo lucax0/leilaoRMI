@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import Controllers.sistemaLeilao;
@@ -50,7 +45,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
         txt_senhaprod = new javax.swing.JTextField();
         txt_descricao = new javax.swing.JTextField();
         btn_addprod = new javax.swing.JButton();
-        btn_remprod = new javax.swing.JButton();
         btn_voltartela = new javax.swing.JButton();
         btn_comecar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -103,15 +97,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
             }
         });
 
-        btn_remprod.setBackground(new java.awt.Color(255, 51, 51));
-        btn_remprod.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btn_remprod.setText("REMOVER");
-        btn_remprod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_remprodActionPerformed(evt);
-            }
-        });
-
         btn_voltartela.setBackground(new java.awt.Color(255, 51, 51));
         btn_voltartela.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_voltartela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout-icon (1).png"))); // NOI18N
@@ -135,6 +120,7 @@ public class abriLeilaoView extends javax.swing.JFrame {
 
         txt_valormin.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
 
+        txt_arremate.setEditable(false);
         txt_arremate.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,8 +165,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
                             .addComponent(txt_arremate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_remprod)
-                        .addGap(18, 18, 18)
                         .addComponent(btn_addprod)
                         .addContainerGap())))
         );
@@ -209,7 +193,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_valormin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_arremate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_remprod, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_addprod, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +215,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
 
     private void btn_voltartelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltartelaActionPerformed
         // TODO add your handling code here:
-        //TEM QUE FAZER UMA PESQUISA COM ID DO USUARIO QUE CRIOU O LEILAO 
 //        Usuario usuarioCon 
         new loginView().setVisible(true);
         this.dispose();
@@ -277,13 +259,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btn_addprodActionPerformed
 
-    private void btn_remprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remprodActionPerformed
-        // TODO add your handling code here:
-        int selectedIndex = jList1.getSelectedIndex();
-        
-        model.removeElementAt(selectedIndex);
-    }//GEN-LAST:event_btn_remprodActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -322,7 +297,6 @@ public class abriLeilaoView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addprod;
     private javax.swing.JButton btn_comecar;
-    private javax.swing.JButton btn_remprod;
     private javax.swing.JButton btn_voltartela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

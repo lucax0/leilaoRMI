@@ -55,12 +55,11 @@ sistemaLeilao server = new sistemaLeilao();
         btn_encerrar = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
         cmb_leilao = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cliente Leilão");
-        setMaximumSize(new java.awt.Dimension(578, 421));
         setMinimumSize(new java.awt.Dimension(578, 421));
-        setPreferredSize(new java.awt.Dimension(578, 421));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -79,7 +78,7 @@ sistemaLeilao server = new sistemaLeilao();
 
         btn_abrir.setBackground(new java.awt.Color(51, 102, 255));
         btn_abrir.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btn_abrir.setText("ABRIR LEILAO");
+        btn_abrir.setText("VER LANCES");
         btn_abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_abrirActionPerformed(evt);
@@ -112,6 +111,10 @@ sistemaLeilao server = new sistemaLeilao();
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Seus leiloes:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,16 +123,18 @@ sistemaLeilao server = new sistemaLeilao();
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(cmb_leilao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_novo)
                         .addGap(40, 40, 40)
                         .addComponent(btn_abrir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addComponent(btn_encerrar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addComponent(btn_encerrar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -141,9 +146,11 @@ sistemaLeilao server = new sistemaLeilao();
                     .addComponent(btn_encerrar)
                     .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_abrir))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmb_leilao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -165,7 +172,13 @@ sistemaLeilao server = new sistemaLeilao();
     }//GEN-LAST:event_btn_abrirActionPerformed
 
     private void btn_encerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_encerrarActionPerformed
-        // TODO add your handling code here:
+        try {
+            String div[] = cmb_leilao.getSelectedItem().toString().split(",");
+            String criterio = div[0];
+            server.alterarStatuById(criterio, server.conectarServidor());
+        } catch (Exception e) {
+            System.out.println("Erro" + e);
+        }
     }//GEN-LAST:event_btn_encerrarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
@@ -228,5 +241,6 @@ sistemaLeilao server = new sistemaLeilao();
     private javax.swing.JButton btn_sair;
     private javax.swing.JComboBox<String> cmb_leilao;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

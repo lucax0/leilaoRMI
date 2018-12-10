@@ -16,8 +16,9 @@ import java.util.List;
  *
  * @author Victor
  */
-public class LeilaoDAO implements DAO<Leilaomodel>{
-  private PreparedStatement pst;
+public class LeilaoDAO implements DAO<Leilaomodel> {
+
+    private PreparedStatement pst;
     //Para conter o resultado de um SELECT
     private ResultSet rs;
     //Para representar um objeto leilaomodel
@@ -32,7 +33,7 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
-        
+
         pst.setInt(1, obj.getCriadoPor());
         pst.setString(2, obj.getNome());
         pst.setString(3, obj.getNome());
@@ -49,20 +50,36 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     }
 
     @Override
-    public boolean alterar(Leilaomodel obj)
-            throws SQLException,
-            ClassNotFoundException {
+    public boolean alterar(Leilaomodel obj) throws SQLException, ClassNotFoundException {
 
-        String sql = "UPDATE Leilao SET nome = ? "
-                + "WHERE id = ?";
+        String sql = "UPDATE Leilao SET sstatus = ? WHERE";
 
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
         pst.setString(1, obj.getNome());
-        
+
         pst.setInt(3, obj.getId());
+        //executar comando SQL
+        if (pst.executeUpdate() == 0) { //não alterou
+            Banco.desconectar();
+            return false;
+        } else {
+            Banco.desconectar();
+            return true;
+        }
+    }
+
+    public boolean alterarStatusById(String criterio) throws SQLException, ClassNotFoundException {
+
+        String sql = "UPDATE Leilao SET sstatus = ? WHERE " + criterio;
+
+        //abre o banco
+        Banco.conectar();
+        pst = Banco.getConexao().prepareStatement(sql);
+        //preencher os parametros do SQL
+        pst.setInt(1, 0);
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não alterou
             Banco.desconectar();
@@ -84,7 +101,7 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
         pst.setInt(1, obj.getId());
-        
+
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não excluiu
             Banco.desconectar();
@@ -118,8 +135,8 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     }
 
     @Override
-    public List<Leilaomodel> listar(String criterio) 
-            throws SQLException, 
+    public List<Leilaomodel> listar(String criterio)
+            throws SQLException,
             ClassNotFoundException {
         String sql = "SELECT * FROM Leilao ";
         if (criterio.length() != 0) {
@@ -138,14 +155,14 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
             leilaomodel.setStatus(rs.getInt("sstatus"));
             leilaomodel.setDescricao(rs.getString("descricao"));
             leiloes.add(leilaomodel);
-        } 
+        }
         rs.close(); //fecha o resultSet
         Banco.desconectar();
         return leiloes;
     }
 
     @Override
-    public Leilaomodel proximo() 
+    public Leilaomodel proximo()
             throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT IFNULL(max(id), 0) + 1 codigo FROM Leilao";
@@ -155,13 +172,13 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
         pst = Banco.getConexao().prepareStatement(sql);
         //executar comando SQL
         rs = pst.executeQuery();
-        
+
         rs.next(); //lê o registro
         leilaomodel = new Leilaomodel();
         leilaomodel.setId(rs.getInt("id"));
         rs.close(); //fecha o resultSet
         Banco.desconectar();
         return leilaomodel;
-        
+
     }
 }
