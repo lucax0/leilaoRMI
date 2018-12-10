@@ -39,10 +39,10 @@ public class sistemaLeilao{
       return loginResult;
   }
   
-  public boolean inserir(String user, String senha, String nome, String CPF, int tipoAcc ,Leilao server){
+  public boolean inserir(String user, String senha, String nome, String CPF, int tipo ,Leilao server){
       boolean cadastroResult = false;
       try {
-          cadastroResult = server.inserir(user, senha, nome, CPF , tipoAcc);
+          cadastroResult = server.inserir(user, senha, nome, CPF , tipo);
           return cadastroResult;
       } catch (Exception e) {
           System.out.println("Erro ao inserir:" +e);
@@ -70,10 +70,10 @@ public class sistemaLeilao{
       }
       return cadastroLeilaoResult;
   }
-    public List<Leilaomodel> preencherleilao(Leilao server){
+    public List<Leilaomodel> preencherleilao(String criterio ,Leilao server){
      List<Leilaomodel> leiloes;
         try {
-          leiloes = server.preencherLeilao();
+          leiloes = server.preencherLeilao(criterio);
           return leiloes;
       } catch (Exception e) {
           System.out.println("Erro ao preencher:" +e);

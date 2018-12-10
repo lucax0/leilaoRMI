@@ -43,7 +43,7 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
             usuario.setNome(nome);
             usuario.setCpf(CPF);
             usuario.setEmail(user);
-            usuario.setTipo(1);
+            usuario.setTipo(tipoAcc);
             usuario.setSenha(senha);
             if (usuarioDAO.inserir(usuario)) {
                 return true;
@@ -82,10 +82,10 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
     }
 
     @Override
-    public List<Leilaomodel> preencherLeilao() throws RemoteException {
+    public List<Leilaomodel> preencherLeilao(String criterio) throws RemoteException {
         try {
             List<Leilaomodel> leiloes;
-            leiloes = leilaoDAO.listar("");
+            leiloes = leilaoDAO.listar(criterio);
             return leiloes;
         } catch (Exception e) { 
             System.out.println("Erro na busca de ");

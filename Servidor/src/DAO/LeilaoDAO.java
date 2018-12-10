@@ -40,7 +40,6 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não inseriu
             Banco.desconectar();
-            System.out.println("Salvou Leilao Banco");
             return false;
         } else {
             Banco.desconectar();
@@ -126,7 +125,7 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     public List<Leilaomodel> listar(String criterio) 
             throws SQLException, 
             ClassNotFoundException {
-        String sql = "SELECT * FROM Leilao";
+        String sql = "SELECT * FROM Leilao ";
 
         if (criterio.length() != 0) {
             sql += "WHERE " + criterio;

@@ -23,17 +23,18 @@ sistemaLeilao server = new sistemaLeilao();
         getContentPane().setBackground(new java.awt.Color(102,204,255));
         this.usuarioCon = resultLogin;
         sistemaLeilao server = new sistemaLeilao();
-        preencherLeilao();
+        preencherLeilao(resultLogin);
     }
     
 
     private controleLeilaoView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private void preencherLeilao() {
+    private void preencherLeilao(Usuario user) {
         java.util.List<Leilaomodel> leiloes;
+        String criterio = "criadoPor =" + user.getId();
         try {
-            leiloes = server.preencherleilao(server.conectarServidor());
+            leiloes = server.preencherleilao(criterio ,server.conectarServidor());
             Iterator it = leiloes.iterator();
             while (it.hasNext()) {
                 Object obj = it.next();

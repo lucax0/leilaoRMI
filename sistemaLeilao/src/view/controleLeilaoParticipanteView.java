@@ -33,8 +33,9 @@ import javax.swing.DefaultComboBoxModel;
 
     private void preencherLeilao() {
         java.util.List<Leilaomodel> leiloes;
+        String criterio = "sstatus != 0";
         try {
-            leiloes = server.preencherleilao(server.conectarServidor());
+            leiloes = server.preencherleilao(criterio ,server.conectarServidor());
             Iterator it = leiloes.iterator();
             while (it.hasNext()) {
                 Object obj = it.next();
