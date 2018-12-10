@@ -163,12 +163,16 @@ sistemaLeilao server = new sistemaLeilao();
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
         // TODO add your handling code here:
+        new cadLeilaoView(usuarioCon).setVisible(true);
           this.dispose();
-          new cadLeilaoView(usuarioCon).setVisible(true);
+          
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_abrirActionPerformed
         // TODO add your handling code here:
+        new controleLance().setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btn_abrirActionPerformed
 
     private void btn_encerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_encerrarActionPerformed
