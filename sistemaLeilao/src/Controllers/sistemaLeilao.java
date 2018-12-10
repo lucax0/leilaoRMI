@@ -80,5 +80,15 @@ public class sistemaLeilao{
       }
       return null;
   }
+    public Leilaomodel pesquisarL(Leilao server){
+        Leilaomodel leilao;
+        try {
+            leilao = server.pesquisarL();
+            return leilao;
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar leilao");
+        }
+        return null;
+    }
   
 }

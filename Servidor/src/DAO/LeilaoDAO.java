@@ -96,22 +96,18 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
     }
 
     @Override
-    public Leilaomodel pesquisar(Leilaomodel obj)
-            throws SQLException, ClassNotFoundException {
+    public Leilaomodel pesquisar(Leilaomodel obj) throws SQLException, ClassNotFoundException {
 
-        String sql = "SELECT * FROM Leilao "
-                + "WHERE id = ?";
-
+        String sql = "SELECT * FROM leilao ORDER BY id DESC LIMIT 1";
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
-        //preencher os parametros do SQL
-        pst.setInt(1, obj.getId());
         //executar comando SQL
         rs = pst.executeQuery();
         //verifica se encontrou o genero
         if (rs.next()) { //encontrou
             leilaomodel = obj;
+            leilaomodel.setId(rs.getInt("id"));
             leilaomodel.setDescricao(rs.getString("descricao"));
         } else {
             leilaomodel = null;
@@ -126,7 +122,6 @@ public class LeilaoDAO implements DAO<Leilaomodel>{
             throws SQLException, 
             ClassNotFoundException {
         String sql = "SELECT * FROM Leilao ";
-
         if (criterio.length() != 0) {
             sql += "WHERE " + criterio;
         }

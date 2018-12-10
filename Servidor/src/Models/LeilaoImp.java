@@ -92,4 +92,16 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
         }
         return null;
     }
+
+    @Override
+    public Leilaomodel pesquisarL() throws RemoteException {
+        try {
+            Leilaomodel leilao2 = new Leilaomodel();
+            Leilaomodel leilao = leilaoDAO.pesquisar(leilao2);
+            return leilao;
+        } catch (Exception e) {
+            System.out.println("Erro na busca do ultimo leilao(IMP)");
+        }
+        return null;
+    }
 }
