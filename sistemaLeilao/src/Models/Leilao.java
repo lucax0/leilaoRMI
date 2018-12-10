@@ -13,6 +13,8 @@ public interface Leilao extends Remote{
     public boolean inserirItem(Item item) throws RemoteException;
     public boolean inserirLeilao(Leilaomodel leilaoModel) throws RemoteException;
     public List<Leilaomodel> preencherLeilao(String criterio) throws RemoteException;
+    public List<Item> preencherItem(String criterio) throws RemoteException;
     public Leilaomodel pesquisarL() throws RemoteException;
     public boolean alterarStatusById(String criterio) throws RemoteException;
+    public boolean atualizarItem(Item item) throws RemoteException;
 }

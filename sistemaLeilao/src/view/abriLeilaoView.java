@@ -5,16 +5,18 @@ import Models.Item;
 import Models.Leilaomodel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+
 /**
  * @author Lucas
  */
 public class abriLeilaoView extends javax.swing.JFrame {
 
     private Leilaomodel leilaoModel;
-     //TEM QUE FAZER UMA PESQUISA COM ID DO USUARIO QUE CRIOU O LEILAO
+    //TEM QUE FAZER UMA PESQUISA COM ID DO USUARIO QUE CRIOU O LEILAO
+
     public abriLeilaoView(Leilaomodel leilaoModel) {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(102,204,255));
+        getContentPane().setBackground(new java.awt.Color(102, 204, 255));
         this.leilaoModel = leilaoModel;
     }
     DefaultListModel model = new DefaultListModel();
@@ -22,21 +24,23 @@ public class abriLeilaoView extends javax.swing.JFrame {
     private abriLeilaoView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public void limparcampos(){
+
+    public void limparcampos() {
         txt_descricao.setText("");
         txt_nomeprod.setText("");
         txt_senhaprod.setText("");
         txt_nomeprod.requestFocus();
+        txt_valormin.setText("");
     }
     sistemaLeilao server = new sistemaLeilao();
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lst_item = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,8 +65,8 @@ public class abriLeilaoView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABRIR LEILAO");
 
-        jList1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        jScrollPane1.setViewportView(jList1);
+        lst_item.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jScrollPane1.setViewportView(lst_item);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setText(" Items do Leilao:");
@@ -205,16 +209,15 @@ public class abriLeilaoView extends javax.swing.JFrame {
 
     private void btn_addprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addprodActionPerformed
         // TODO add your handling code here:
-       if ((txt_descricao.getText().length() == 0) || (txt_nomeprod.getText().length() == 0) || (txt_senhaprod.getText().length() == 0) || (txt_valormin.getText().length() == 0)){
-           JOptionPane.showMessageDialog(rootPane,
+        if ((txt_descricao.getText().length() == 0) || (txt_nomeprod.getText().length() == 0) || (txt_senhaprod.getText().length() == 0) || (txt_valormin.getText().length() == 0)) {
+            JOptionPane.showMessageDialog(rootPane,
                     "Um ou mais campos vazios!!!",
                     "Mensagem ao Usuário",
                     JOptionPane.WARNING_MESSAGE);
-       }
-       else{
-           try {
+        } else {
+            try {
                 leilaoModel = server.pesquisarL(server.conectarServidor());
-               //Montar a model para salvar
+                //Montar a model para salvar
                 Item item = new Item();
                 item.setNome(txt_nomeprod.getText());
                 item.setVendedor("teste");
@@ -226,6 +229,8 @@ public class abriLeilaoView extends javax.swing.JFrame {
                 item.setIdLeilao(leilaoModel.getId());
                 if (server.inserirItem(item, server.conectarServidor())) {
                     JOptionPane.showMessageDialog(rootPane, "Cadastro com sucesso!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
+                    lst_item.setModel(model);
+                    model.addElement(txt_nomeprod.getText());
                     limparcampos();
                 } else {
                     limparcampos();
@@ -235,16 +240,13 @@ public class abriLeilaoView extends javax.swing.JFrame {
                 System.out.println(e);
                 JOptionPane.showMessageDialog(rootPane, "ERRO AO CADASTRAR", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
             }
-            jList1.setModel(model);
-            model.addElement(txt_nomeprod.getText());
             limparcampos();
-       }
-       
+        }
+
     }//GEN-LAST:event_btn_addprodActionPerformed
 
     private void btn_voltartelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltartelaActionPerformed
         // TODO add your handling code here:
-        //        Usuario usuarioCon
         new loginView().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltartelaActionPerformed
@@ -294,8 +296,8 @@ public class abriLeilaoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lst_item;
     private javax.swing.JTextField txt_arremate;
     private javax.swing.JTextField txt_descricao;
     private javax.swing.JTextField txt_nomeprod;

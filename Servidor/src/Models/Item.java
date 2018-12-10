@@ -2,7 +2,8 @@ package Models;
 
 import java.io.Serializable;
 
-public class Item implements Serializable{
+public class Item implements Serializable {
+
     private String nome;
     private String cpf;
     private String vendedor;
@@ -14,10 +15,15 @@ public class Item implements Serializable{
     private float arremate;
     private String senha;
 
+    @Override
+    public String toString() {
+        return "nome=" + nome + ", id=" + id;
+    }
+
     public Item() {
     }
 
-    public Item(String nome, String cpf, String vendedor, String descricao, int idLeilao, int id, float valormin, float arremate, String senha,float lance) {
+    public Item(String nome, String cpf, String vendedor, String descricao, int idLeilao, int id, float valormin, float arremate, String senha, float lance) {
         this.nome = nome;
         this.cpf = cpf;
         this.vendedor = vendedor;
@@ -29,7 +35,7 @@ public class Item implements Serializable{
         this.senha = senha;
         this.lance = valormin;
     }
-    
+
     public int getIdLeilao() {
         return idLeilao;
     }
@@ -38,7 +44,6 @@ public class Item implements Serializable{
         this.idLeilao = idLeilao;
     }
 
-    
     public String getNome() {
         return nome;
     }
@@ -110,5 +115,5 @@ public class Item implements Serializable{
     public void setLance(float lance) {
         this.lance = lance;
     }
-    
+
 }

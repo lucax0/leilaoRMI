@@ -6,7 +6,7 @@ public class Banco {
 
     //variaveis internas
     private static String usuario = "root";
-    private static String senha = "";
+    private static String senha = "123456";
     private static String servidor = "localhost";
     private static String bd = "leilao";
     private static int porta = 3306;

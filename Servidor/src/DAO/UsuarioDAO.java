@@ -15,7 +15,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     public Usuario login(String user, String senha) throws SQLException, ClassNotFoundException {
         Usuario usuario = new Usuario();
         try {
-            String sql = "SELECT * FROM usuario WHERE usuario.email = ? AND usuario.senha = ?";
+            String sql = "SELECT * FROM Usuario WHERE Usuario.email = ? AND Usuario.senha = ?";
             Banco.conectar();
             pst = Banco.getConexao().prepareStatement(sql);
             pst.setString(1, user);
@@ -26,10 +26,10 @@ public class UsuarioDAO implements DAO<Usuario> {
             if (rs.next()) { //encontrou
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("usuario.email"));
+                usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setTipo(rs.getInt("tipo"));
-                usuario.setCpf(rs.getString("usuario.cpf"));
+                usuario.setCpf(rs.getString("cpf"));
                 return usuario;
             } else {
                 System.out.println("SQL nao retornou resultados");
@@ -40,13 +40,13 @@ public class UsuarioDAO implements DAO<Usuario> {
         } catch (Exception e) {
             System.out.println("erro no login:" + e);
         }
-        return usuario;
+        return null;
     }
 
     @Override
     public boolean inserir(Usuario obj) throws SQLException,ClassNotFoundException {
         
-        String sql = "INSERT INTO usuario (nome, email, cpf, senha, tipo) values (?, ?, ?, ? ,?)";
+        String sql = "INSERT INTO Usuario (nome, email, cpf, senha, tipo) values (?, ?, ?, ? ,?)";
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL

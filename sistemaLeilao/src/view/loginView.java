@@ -131,7 +131,7 @@ public class loginView extends javax.swing.JFrame {
        if ((txt_senha.getText().length() == 0) || (txt_usuario.getText().length() == 0)) {
             JOptionPane.showMessageDialog(rootPane, "Um ou mais campos vazios!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
         } else {
-           if(txt_senha.getText().length() <= 6){
+           if(txt_senha.getText().length() < 6){
                 JOptionPane.showMessageDialog(rootPane, "A senha precisa de pelo menos 6 caracteres!!!", "Mensagem ao Usuário", JOptionPane.WARNING_MESSAGE);
                 txt_senha.requestFocus();
             }else{

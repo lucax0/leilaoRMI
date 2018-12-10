@@ -14,6 +14,11 @@ public class Item implements Serializable{
     private float arremate;
     private String senha;
 
+    @Override
+    public String toString() {
+        return "nome=" + nome + ", id=" + id;
+    }
+
     public Item() {
     }
 

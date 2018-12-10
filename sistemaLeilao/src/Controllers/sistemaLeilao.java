@@ -80,6 +80,16 @@ public class sistemaLeilao{
       }
       return null;
   }
+    public List<Item> preencheritems(String criterio ,Leilao server){
+     List<Item> items;
+        try {
+          items = server.preencherItem(criterio);
+          return items;
+      } catch (Exception e) {
+          System.out.println("Erro ao preencher:" +e);
+      }
+      return null;
+  }
     public Leilaomodel pesquisarL(Leilao server){
         Leilaomodel leilao;
         try {
@@ -101,4 +111,5 @@ public class sistemaLeilao{
         }
         return result;
     }
+    
 }

@@ -186,17 +186,10 @@ sistemaLeilao server = new sistemaLeilao();
     }//GEN-LAST:event_btn_encerrarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-        // TODO add your handling code here:
-        
         resp = JOptionPane.showConfirmDialog(this, "Deseja realmente sair ?", "Saindo do programa!!!", JOptionPane.YES_NO_OPTION);
-        if (resp == 1){
-            
-        }else{
-            new controleLeilaoView(usuarioCon).setVisible(true);
+        if (resp == 0){
             this.dispose();
         }
-            
-        
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void cmb_leilaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_leilaoActionPerformed

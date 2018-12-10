@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Models.Item;
@@ -25,7 +20,7 @@ public class ItemDAO implements DAO<Item>{
 
     @Override
     public boolean inserir(Item obj)throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO item (idLeilao,nome, vendedor, cpf, descricao, valormin, senha, valorarremate, lance) values ( ?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO Item (idLeilao,nome, vendedor, cpf, descricao, valormin, senha, valorarremate, lance) values ( ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         //abre o banco
         Banco.conectar();
@@ -55,16 +50,15 @@ public class ItemDAO implements DAO<Item>{
     public boolean alterar(Item obj) throws SQLException,
             ClassNotFoundException {
 
-        String sql = "UPDATE Leilao SET nome = ? "
+        String sql = "UPDATE Item SET valormin = ? "
                 + "WHERE " ;
 
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);
         //preencher os parametros do SQL
-        pst.setString(1, obj.getNome());
-        
-        pst.setInt(3, obj.getId());
+        pst.setInt(1, (int) obj.getValormin());
+        pst.setInt(2, obj.getId());
         //executar comando SQL
         if (pst.executeUpdate() == 0) { //não alterou
             Banco.desconectar();
@@ -79,7 +73,7 @@ public class ItemDAO implements DAO<Item>{
     public boolean excluir(Item obj)
             throws SQLException, ClassNotFoundException {
 
-        String sql = "DELETE FROM Leilao WHERE id = ?";
+        String sql = "DELETE FROM Item WHERE id = ?";
 
         //abre o banco
         Banco.conectar();
@@ -114,6 +108,7 @@ public class ItemDAO implements DAO<Item>{
         //verifica se encontrou o genero
         if (rs.next()) { //encontrou
             itemModel = obj;
+            itemModel.setNome(rs.getString("nome"));
             itemModel.setDescricao(rs.getString("descricao"));
         } else {
             itemModel = null;
@@ -127,10 +122,11 @@ public class ItemDAO implements DAO<Item>{
     public List<Item> listar(String criterio) 
             throws SQLException, 
             ClassNotFoundException {
-        String sql = "SELECT * FROM Leilao ";
-
+        String sql = "SELECT * FROM Item ";
+        String div[] = criterio.split("=");
+        String valId = div[1];
         if (criterio.length() != 0) {
-            sql += "WHERE " + criterio;
+            sql += "WHERE idLeilao =" + valId;
         }
 
         //abre o banco
@@ -138,16 +134,19 @@ public class ItemDAO implements DAO<Item>{
         pst = Banco.getConexao().prepareStatement(sql);
         //executar comando SQL
         rs = pst.executeQuery();
-        List<Item> leiloes = new ArrayList<>();
+        List<Item> items = new ArrayList<>();
         while (rs.next()) { //percorre todos os registros
             itemModel = new Item();
             itemModel.setId(rs.getInt("id"));
+            itemModel.setNome(rs.getString("nome"));
+            itemModel.setValormin(rs.getInt("valormin"));
             itemModel.setDescricao(rs.getString("descricao"));
-            leiloes.add(itemModel);
+            itemModel.setArremate(rs.getInt("valorarremate"));
+            items.add(itemModel);
         } 
         rs.close(); //fecha o resultSet
         Banco.desconectar();
-        return leiloes;
+        return items;
     }
 
     @Override
@@ -155,7 +154,7 @@ public class ItemDAO implements DAO<Item>{
             throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT IFNULL(max(id), 0) + 1 codigo "
-                + "FROM Leilao";
+                + "FROM Item";
 
         //abre o banco
         Banco.conectar();

@@ -116,4 +116,31 @@ public class LeilaoImp extends UnicastRemoteObject implements Leilao {
         }
         return result;
     }
+
+    @Override
+    public List<Item> preencherItem(String criterio) throws RemoteException {
+        try {
+            List<Item> items;
+            items = itemDAO.listar(criterio);
+            return items;
+        } catch (Exception e) {
+            System.out.println("Erro na busca de ");
+        }
+        return null;
+    }
+
+    @Override
+    public boolean atualizarItem(Item item) throws RemoteException {
+        try {
+            if (itemDAO.alterar(item)) {
+                System.out.println("att Item");
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Erro:" + e);
+        }
+        return false;
+    }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Models.Leilaomodel;
@@ -12,10 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Victor
- */
 public class LeilaoDAO implements DAO<Leilaomodel> {
 
     private PreparedStatement pst;
@@ -115,7 +106,7 @@ public class LeilaoDAO implements DAO<Leilaomodel> {
     @Override
     public Leilaomodel pesquisar(Leilaomodel obj) throws SQLException, ClassNotFoundException {
 
-        String sql = "SELECT * FROM leilao ORDER BY id DESC LIMIT 1";
+        String sql = "SELECT * FROM Leilao ORDER BY id DESC LIMIT 1";
         //abre o banco
         Banco.conectar();
         pst = Banco.getConexao().prepareStatement(sql);

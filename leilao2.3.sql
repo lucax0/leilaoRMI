@@ -29,8 +29,7 @@ create table Item (
 	lance float(11) ,
     valormin float(11) ,
     senha varchar(11),
-    valorarremate float(11),
-    FOREIGN KEY (id) REFERENCES Leilao(id)
+    valorarremate float(11)
     );
     
 create table Participante(
